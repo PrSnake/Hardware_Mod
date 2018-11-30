@@ -1,5 +1,8 @@
 # Creative tabs
 itemGroup.hardware.tab_hardware_minerals=Minerals
+itemGroup.hardware.tab_hardware_components=Components
+itemGroup.hardware.tab_hardware_tools=Tools
+itemGroup.hardware.tab_hardware_machines=Machines
 
 # Ore blocks
 tile.hardware.block_ore_cobalt.name=Cobalt Ore

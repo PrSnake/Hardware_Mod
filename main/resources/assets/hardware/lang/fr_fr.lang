@@ -1,5 +1,8 @@
 # Onglets du mode créatif
 itemGroup.hardware.tab_hardware_minerals=Mineraux
+itemGroup.hardware.tab_hardware_components=Composants
+itemGroup.hardware.tab_hardware_tools=Outils
+itemGroup.hardware.tab_hardware_machines=Machines
 
 # Blocs de minerai
 tile.hardware.block_ore_cobalt.name=Minerai de Cobalt

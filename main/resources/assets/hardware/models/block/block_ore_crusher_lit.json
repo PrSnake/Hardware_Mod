@@ -1,12 +1,12 @@
 {
     "parent": "block/orientable",
     "textures": {
-        "particle": "tutorial:blocks/block_ore_crusher_side",
-        "up": "tutorial:blocks/block_ore_crusher_side",
-        "down": "tutorial:blocks/block_ore_crusher_side",
-        "north": "tutorial:blocks/block_ore_crusher_front_on",
-        "east": "tutorial:blocks/block_ore_crusher_side",
-        "south": "tutorial:blocks/block_ore_crusher_side",
-        "west": "tutorial:blocks/block_ore_crusher_side"
+        "particle": "hardware:blocks/block_ore_crusher_side",
+        "up": "hardware:blocks/block_ore_crusher_side",
+        "down": "hardware:blocks/block_ore_crusher_side",
+        "north": "hardware:blocks/block_ore_crusher_front_on",
+        "east": "hardware:blocks/block_ore_crusher_side",
+        "south": "hardware:blocks/block_ore_crusher_side",
+        "west": "hardware:blocks/block_ore_crusher_side"
     }
 }

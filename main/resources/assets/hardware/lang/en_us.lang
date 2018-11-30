@@ -25,3 +25,9 @@ item.hardware.item_ingot_lead.name=Lead Ingot
 # Machines
 tile.hardware.block_ore_crusher.name=Ore Crusher
 container.hardware.ore_crusher.name=Ore Crusher
+
+# Components
+item.hardware.item_plate_iron.name=Iron Plate
+item.hardware.item_rode_iron.name=Iron Rode
+item.hardware.item_gears_iron.name=Iron Gears
+item.hardware.item_grinder_iron.name=Iron Grinder

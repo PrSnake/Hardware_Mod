@@ -27,5 +27,11 @@ public class ItemInit {
 	public static final Item INGOT_ALUMINIUM = new ItemBase("item_ingot_aluminium", ModHardware.MINERALS_TAB);
 	public static final Item INGOT_LEAD = new ItemBase("item_ingot_lead", ModHardware.MINERALS_TAB);
 	public static final Item INGOT_VANADIUM = new ItemBase("item_ingot_vanadium", ModHardware.MINERALS_TAB);
-
+	
+	// Composant de machines
+	// public static final Item  = new ItemBase("item_", ModHardware.COMPONENTS_TAB);
+	public static final Item PLATE_IRON = new ItemBase("item_plate_iron", ModHardware.COMPONENTS_TAB);
+	public static final Item RODE_IRON = new ItemBase("item_rode_iron", ModHardware.COMPONENTS_TAB);
+	public static final Item GEARS_IRON = new ItemBase("item_gears_iron", ModHardware.COMPONENTS_TAB);
+	public static final Item GRINDER_IRON = new ItemBase("item_grinder_iron", ModHardware.COMPONENTS_TAB);
 }

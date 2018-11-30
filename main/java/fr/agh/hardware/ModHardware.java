@@ -2,11 +2,12 @@ package fr.agh.hardware;
 
 import org.apache.logging.log4j.Logger;
 
+import fr.agh.hardware.creativetabs.ComponentsTab;
 import fr.agh.hardware.creativetabs.MachinesTab;
 import fr.agh.hardware.creativetabs.MineralsTab;
 //import fr.agh.hardware.creativetabs.ToolsTab;
 //import fr.agh.hardware.creativetabs.MachinesTab;
-
+import fr.agh.hardware.creativetabs.ToolsTab;
 import fr.agh.hardware.util.handlers.RegistryHandler;
 import fr.agh.hardware.proxy.HardwareCommon;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,8 +26,9 @@ import fr.agh.hardware.util.HardwareReference;
 public class ModHardware {
 	
 	public static final MineralsTab MINERALS_TAB = new MineralsTab();
-	//public static final ToolsTab TOOLS_TAB = new ToolsTab();
+	public static final ToolsTab TOOLS_TAB = new ToolsTab();
 	public static final MachinesTab MACHINES_TAB = new MachinesTab();
+	public static final ComponentsTab COMPONENTS_TAB = new ComponentsTab();
 	
 	@Instance(HardwareReference.MODID)
 	public static ModHardware instance;

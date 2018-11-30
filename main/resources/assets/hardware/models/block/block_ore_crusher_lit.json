@@ -1,0 +1,12 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "particle": "tutorial:blocks/block_ore_crusher_side",
+        "up": "tutorial:blocks/block_ore_crusher_side",
+        "down": "tutorial:blocks/block_ore_crusher_side",
+        "north": "tutorial:blocks/block_ore_crusher_front_on",
+        "east": "tutorial:blocks/block_ore_crusher_side",
+        "south": "tutorial:blocks/block_ore_crusher_side",
+        "west": "tutorial:blocks/block_ore_crusher_side"
+    }
+}

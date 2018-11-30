@@ -1,0 +1,7 @@
+{
+   "variants": {
+       "normal": {
+           "model": "hardware:block_ore_galena"
+       }
+   }
+}

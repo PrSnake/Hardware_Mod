@@ -1,0 +1,27 @@
+# Creative tabs
+itemGroup.hardware.tab_hardware_minerals=Minerals
+
+# Ore blocks
+tile.hardware.block_ore_cobalt.name=Cobalt Ore
+tile.hardware.block_ore_copper.name=Copper Ore
+tile.hardware.block_ore_vanadium.name=Vanadium Ore
+tile.hardware.block_ore_bauxite.name=Bauxite Ore
+tile.hardware.block_ore_galena.name=Galena Ore
+
+# Raw ores items
+item.hardware.item_raw_copper.name=Raw copper ore
+item.hardware.item_raw_cobalt.name=Raw cobalt ore
+item.hardware.item_raw_vanadium.name=Raw vanadium ore
+item.hardware.item_raw_bauxite.name=Raw bauxite ore
+item.hardware.item_raw_galena.name=Raw galena ore
+
+# Ingots Items
+item.hardware.item_ingot_copper.name=Copper Ingot
+item.hardware.item_ingot_cobalt.name=Cobalt Ingot
+item.hardware.item_ingot_vanadium.name=Vanadium Ingot
+item.hardware.item_ingot_aluminium.name=Aluminium Ingot
+item.hardware.item_ingot_lead.name=Lead Ingot
+
+# Machines
+tile.hardware.block_ore_crusher.name=Ore Crusher
+container.hardware.ore_crusher.name=Ore Crusher

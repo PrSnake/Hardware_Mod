@@ -1,0 +1,13 @@
+{
+    "variants":
+    {
+    "burning=false,facing=north": { "model": "hardware:block_ore_crusher" },
+    "burning=false,facing=east": { "model": "hardware:block_ore_crusher", "y": 90 },
+    "burning=false,facing=south": { "model": "hardware:block_ore_crusher", "y": 180 },
+    "burning=false,facing=west": { "model": "hardware:block_ore_crusher", "y": 270 },
+    "burning=true,facing=north": { "model": "hardware:block_ore_crusher_lit" },
+    "burning=true,facing=east": { "model": "hardware:block_ore_crusher_lit", "y": 90 },
+    "burning=true,facing=south": { "model": "hardware:block_ore_crusher_lit", "y": 180 },
+    "burning=true,facing=west": { "model": "hardware:block_ore_crusher_lit", "y": 270 }
+    }
+}

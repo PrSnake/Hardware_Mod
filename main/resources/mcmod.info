@@ -1,0 +1,16 @@
+[
+{
+  "modid": "hardware",
+  "name": "Hardware Mod",
+  "description": "Mod industriel",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Pr. Snake"],
+  "credits": "The Forge and FML guys, for all their hard work; robin4002 et le staff minecraft forge france pour les tutos bien avisés; et puis ma gueule pour avoir programmé tout ça !",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

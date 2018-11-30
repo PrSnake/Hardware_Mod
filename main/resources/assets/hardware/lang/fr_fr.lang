@@ -1,0 +1,27 @@
+# Onglets du mode créatif
+itemGroup.hardware.tab_hardware_minerals=Mineraux
+
+# Blocs de minerai
+tile.hardware.block_ore_cobalt.name=Minerai de Cobalt
+tile.hardware.block_ore_copper.name=Minerai de Cuivre
+tile.hardware.block_ore_vanadium.name=Minerai de Vanadium
+tile.hardware.block_ore_bauxite.name=Minerai de Bauxite
+tile.hardware.block_ore_galena.name=Minerai de Galène
+
+# Minerais brute (items)
+item.hardware.item_raw_copper.name=Minerai de cuivre brut
+item.hardware.item_raw_cobalt.name=Minerai de cobalt brut
+item.hardware.item_raw_vanadium.name=Minerai de vanadium brut
+item.hardware.item_raw_bauxite.name=Minerai de bauxite brut
+item.hardware.item_raw_galena.name=Minerai de galène brut
+
+# Lingots (items)
+item.hardware.item_ingot_copper.name=Lingot de Cuivre
+item.hardware.item_ingot_cobalt.name=Lingot de Cobalt
+item.hardware.item_ingot_vanadium.name=Lingot de Vanadium
+item.hardware.item_ingot_aluminium.name=Lingot d'Aluminium
+item.hardware.item_ingot_lead.name=Lingot de Plomb
+
+# Machines
+tile.hardware.block_ore_crusher.name=Broyeur de minerai
+container.hardware.ore_crusher.name=Broyeur de minerai

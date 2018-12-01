@@ -9,9 +9,9 @@
     
     "key":
     {
-        "I":
+        "R":
         {
-            "item": "minecraft:iron_ingot"
+            "item": "hardware:item_rode_iron"
         },
         
         "G":

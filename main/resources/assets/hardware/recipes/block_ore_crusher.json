@@ -23,5 +23,10 @@
         {
             "item": "hardware:item_gears_iron"
         }
+    },
+    
+    "result":
+    {
+        "item": "hardware:block_ore_crusher"
     }
 }

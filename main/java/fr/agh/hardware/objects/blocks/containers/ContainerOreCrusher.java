@@ -90,12 +90,7 @@ public class ContainerOreCrusher extends Container{
 			ItemStack stack1 = slot.getStack();
 			stack = stack1.copy();
 			
-			if(index == 3) 
-			{
-				if(!this.mergeItemStack(stack1, 4, 40, true)) return ItemStack.EMPTY;
-				slot.onSlotChange(stack1, stack);
-			}
-			else if(index != 2 && index != 1 && index != 0) 
+			if(index != 2 && index != 1 && index != 0) 
 			{		
 				Slot slot1 = (Slot)this.inventorySlots.get(index + 1);
 				
@@ -127,7 +122,7 @@ public class ContainerOreCrusher extends Container{
 					}
 				}
 			} 
-			else if(!this.mergeItemStack(stack1, 4, 40, false)) 
+			else if(!this.mergeItemStack(stack1, 3, 39, false)) 
 			{
 				return ItemStack.EMPTY;
 			}
@@ -145,5 +140,4 @@ public class ContainerOreCrusher extends Container{
 		}
 		return stack;
 	}
-
 }

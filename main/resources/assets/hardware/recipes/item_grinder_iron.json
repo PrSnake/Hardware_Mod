@@ -1,0 +1,22 @@
+{
+    "type":"minecraft:crafting_shaped",
+    "pattern":
+    [
+        "GGG",
+        "GRG",
+        "GGG"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "minecraft:iron_ingot"
+        },
+        
+        "G":
+        {
+            "item": "hardware:item_gears_iron"
+        }
+    }
+}

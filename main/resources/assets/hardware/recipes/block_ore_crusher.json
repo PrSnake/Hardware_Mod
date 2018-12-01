@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "PPP",
+        "GIG",
+        "PPP"
+    ],
+    
+    "key":
+    {
+        "P":
+        {
+            "item": "hardware:item_plate_iron"
+        },
+        
+        "G":
+        {
+            "item": "hardware:item_grinder_iron"
+        },
+        
+        "I":
+        {
+            "item": "hardware:item_gears_iron"
+        }
+    }
+}

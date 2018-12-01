@@ -13,5 +13,10 @@
         {
             "item": "minecraft:iron_ingot"
         }
+    },
+    
+    "result":
+    {
+        "item": "hardware:item_gears_iron"
     }
 }

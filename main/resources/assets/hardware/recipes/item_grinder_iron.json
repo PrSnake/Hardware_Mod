@@ -18,5 +18,10 @@
         {
             "item": "hardware:item_gears_iron"
         }
+    },
+    
+    "result":
+    {
+        "item": "hardware:item_grinder_iron"
     }
 }

@@ -3,6 +3,7 @@ package fr.agh.hardware.objects.blocks.tileentities;
 import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import fr.agh.hardware.objects.blocks.recipes.RecipesOreCrusher;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -17,10 +18,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -34,10 +37,13 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	private String customName;
 	private ItemStack smelting = ItemStack.EMPTY;
 	
+	/** The number of ticks that the furnace will keep burning */
 	private int burnTime;
+	/** The number of ticks that a fresh copy of the currently-burning item would keep the furnace burning for */
 	private int currentBurnTime;
 	private int cookTime;
-	private int totalCookTime = 200;
+	private int totalCookTime = 50;
+	private boolean dirty = false;
 	
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) 
@@ -103,77 +109,117 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	@SideOnly(Side.CLIENT)
 	public static boolean isBurning(TileEntityOreCrusher te) 
 	{
-		return te.getField(0) > 0;
+		return te.getField(1) > 0;
 	}
 	
+	// méthode appelée à chaque tic pour actualiser le bloc
 	@Override
 	public void update() 
-	{	
-		if(this.isBurning())
-		{
-			--this.burnTime;
-			BlockOreCrusher.setState(true, world, pos);
-		}
+	{
 		
-		ItemStack input = this.handler.getStackInSlot(0);
-		ItemStack fuel = this.handler.getStackInSlot(1);
-		
-		if(this.isBurning() || !fuel.isEmpty() && !this.handler.getStackInSlot(0).isEmpty())
-		{
-			if(!this.isBurning() && this.canSmelt())
-			{
-				this.burnTime = getItemBurnTime(fuel);
-				this.currentBurnTime = burnTime;
-				
-				if(this.isBurning() && !fuel.isEmpty())
-				{
-					Item item = fuel.getItem();
-					fuel.shrink(1);
-					
-					if(fuel.isEmpty())
-					{
-						ItemStack item1 = item.getContainerItem(fuel);
-						this.handler.setStackInSlot(1, item1);
-					}
-				}
-			}
-		}
-		
-		if(this.isBurning() && this.canSmelt() && cookTime > 0)
-		{
-			cookTime++;
-			if(cookTime == totalCookTime)
-			{
-				if(handler.getStackInSlot(2).getCount() > 0)
-				{
-					handler.getStackInSlot(2).grow(1);
-				}
-				else
-				{
-					handler.insertItem(2, smelting, false);
-				}
-				
-				smelting = ItemStack.EMPTY;
-				cookTime = 0;
-				return;
-			}
-		}
-		else
-		{
-			if(this.canSmelt() && this.isBurning())
-			{
-				ItemStack output = RecipesOreCrusher.getInstance().getOreCrushingResult(input);
-				if(!output.isEmpty())
-				{
-					smelting = output;
-					cookTime++;
-					input.shrink(1);
-					handler.setStackInSlot(0, input);
-				}
-			}
-		}
+		boolean flag = this.isBurning();
+        boolean dirty = false;
+
+        if (this.isBurning())
+        {
+            --this.burnTime;
+        }
+
+        if (!this.world.isRemote)
+        {
+            ItemStack fuel = this.handler.getStackInSlot(1);
+
+            if (this.isBurning() || !fuel.isEmpty() && !((ItemStack)this.handler.getStackInSlot(0)).isEmpty())
+            {
+                if (!this.isBurning() && this.canSmelt())
+                {
+                    this.burnTime = getItemBurnTime(fuel);
+                    this.currentBurnTime = this.burnTime;
+
+                    if (this.isBurning())
+                    {
+                        dirty = true;
+
+                        if (!fuel.isEmpty())
+                        {
+                            Item item = fuel.getItem();
+                            fuel.shrink(1);
+
+                            if (fuel.isEmpty())
+                            {
+                                ItemStack item1 = item.getContainerItem(fuel);
+                                this.handler.setStackInSlot(1, fuel);
+                            }
+                        }
+                    }
+                }
+
+                if (this.isBurning() && this.canSmelt())
+                {
+                    ++this.cookTime;
+
+                    if (this.cookTime == this.totalCookTime)
+                    {
+                        this.cookTime = 0;
+                        this.totalCookTime = this.getCookTime(this.handler.getStackInSlot(0));
+                        this.smeltItem();
+                        dirty = true;
+                    }
+                }
+                else
+                {
+                    this.cookTime = 0;
+                }
+            }
+            else if (!this.isBurning() && this.cookTime > 0)
+            {
+                this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
+            }
+
+            if (flag != this.isBurning())
+            {
+            	dirty = true;
+                BlockOreCrusher.setState(this.isBurning(), this.world, this.pos);
+            }
+        }
+
+        if (dirty)
+        {
+            this.markDirty();
+        }
 	}
 	
+	private void smeltItem() {
+		// TODO Auto-generated method stub
+		ItemStack input = this.handler.getStackInSlot(0);
+		ItemStack output = this.handler.getStackInSlot(2);
+		ItemStack result = RecipesOreCrusher.getInstance().getOreCrushingResult(input);
+		
+		if(!result.isEmpty())
+		{
+			if (output.isEmpty())
+			{
+				this.handler.insertItem(2, result, false);
+				output.setCount(2);
+			}
+			else if (output == result)
+			{
+				output.grow(2);
+			}
+			else if (output != result)
+			{
+				return;
+			}
+			input.shrink(1);;
+		}
+		
+		return;
+	}
+
+	private int getCookTime(ItemStack stackInSlot) {
+		return this.totalCookTime;
+	}
+
 	private boolean canSmelt() 
 	{
 		if(((ItemStack)this.handler.getStackInSlot(0)).isEmpty() || ((ItemStack)this.handler.getStackInSlot(1)).isEmpty()) return false;
@@ -187,12 +233,17 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 				ItemStack output = (ItemStack)this.handler.getStackInSlot(2);
 				if(output.isEmpty()) return true;
 				if(!output.isItemEqual(result)) return false;
-				int res = output.getCount() + result.getCount();
+				int res = output.getCount() + result.getCount()*2;
 				return res <= 64 && res <= output.getMaxStackSize();
 			}
 		}
 	}
 	
+	/**
+	 * Permet d'obtenir le nombre de tic durant lequel une item peut être utilisée comme carburant
+	 * @param fuel Carburant qui est inséré dans le slot 1 de la machine
+	 * @return retourne la valeur sous forme d'entier du nombre de tic pendant lequel l'item peut servir de carburant
+	 */
 	public static int getItemBurnTime(ItemStack fuel) 
 	{
 		if(fuel.isEmpty()) return 0;
@@ -218,7 +269,10 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 			if (item == Item.getItemFromBlock(Blocks.SAPLING)) return 100;
 			if (item == Items.BLAZE_ROD) return 2400;
 
+			//deprecated methode
 			return GameRegistry.getFuelValue(fuel);
+			
+			//return ForgeEventFactory.getItemBurnTime(fuel);
 		}
 	}
 	

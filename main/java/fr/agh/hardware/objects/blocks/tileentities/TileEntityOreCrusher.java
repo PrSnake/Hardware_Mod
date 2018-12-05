@@ -148,7 +148,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
                             if (fuel.isEmpty())
                             {
                                 ItemStack item1 = item.getContainerItem(fuel);
-                                this.handler.setStackInSlot(1, fuel);
+                                this.handler.setStackInSlot(1, item1);
                             }
                         }
                     }
@@ -210,7 +210,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 			{
 				return;
 			}
-			input.shrink(1);;
+			input.shrink(1);
 		}
 		
 		return;
@@ -229,7 +229,6 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 			if(result.isEmpty()) return false;
 			else
 			{
-				//TODO checker le resultat via la hashmap dans RecipesOreCrusher
 				ItemStack output = (ItemStack)this.handler.getStackInSlot(2);
 				if(output.isEmpty()) return true;
 				if(!output.isItemEqual(result)) return false;

@@ -14,22 +14,18 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
-public class BlockOreBase extends Block implements IHasModel {
+public class BlockOreBase extends BlockBase implements IHasModel {
 
 	private static final Material MATERIAL = Material.ROCK;
 	private Item loot = null;
 	
 	public BlockOreBase(String name, Item item) {
-		super(MATERIAL);
+		super(name, ModHardware.MINERALS_TAB, MATERIAL,5.0F,3.0F);
 		
 		loot = item;
 		
 		setUnlocalizedName(HardwareReference.MODID + "." + name);
 		setRegistryName(HardwareReference.MODID, name);
-		
-		setResistance(5.0F);
-		setHardness(3.0F);
-		setCreativeTab(ModHardware.MINERALS_TAB);
 		
 		BlockInit.BLOCKS.add(this);
 		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

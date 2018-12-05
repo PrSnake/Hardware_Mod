@@ -23,12 +23,6 @@ public class BlockOreBase extends BlockBase implements IHasModel {
 		super(name, ModHardware.MINERALS_TAB, MATERIAL,5.0F,3.0F);
 		
 		loot = item;
-		
-		setUnlocalizedName(HardwareReference.MODID + "." + name);
-		setRegistryName(HardwareReference.MODID, name);
-		
-		BlockInit.BLOCKS.add(this);
-		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 	
 	/**

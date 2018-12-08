@@ -117,7 +117,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	public void update() 
 	{
 		
-		boolean flag = this.isBurning();
+		boolean isBurning = this.isBurning();
         boolean dirty = false;
 
         if (this.isBurning())
@@ -176,7 +176,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
                 this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
             }
 
-            if (flag != this.isBurning())
+            if (isBurning != this.isBurning())
             {
             	dirty = true;
                 BlockOreCrusher.setState(this.isBurning(), this.world, this.pos);
@@ -222,17 +222,32 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 
 	private boolean canSmelt() 
 	{
-		if(((ItemStack)this.handler.getStackInSlot(0)).isEmpty() || ((ItemStack)this.handler.getStackInSlot(1)).isEmpty()) return false;
+		
+		if(((ItemStack)this.handler.getStackInSlot(0)).isEmpty() || ((ItemStack)this.handler.getStackInSlot(1)).isEmpty())
+		{
+			return false;
+		}
 		else 
 		{
-			ItemStack result = RecipesOreCrusher.getInstance().getOreCrushingResult((ItemStack)this.handler.getStackInSlot(0));	
+			ItemStack result = RecipesOreCrusher.getInstance().getOreCrushingResult((ItemStack)this.handler.getStackInSlot(0));
+			
 			if(result.isEmpty()) return false;
 			else
 			{
 				ItemStack output = (ItemStack)this.handler.getStackInSlot(2);
-				if(output.isEmpty()) return true;
-				if(!output.isItemEqual(result)) return false;
-				int res = output.getCount() + result.getCount()*2;
+				if(output.isEmpty())
+				{
+					return true;
+				}
+				
+				if(!output.isItemEqual(result))
+				{
+					return false;
+				}
+				
+				// Si on change le nombre d'item créées par le bloc remplacer le 2 par ce nombre
+				int res = output.getCount() + 2;
+
 				return res <= 64 && res <= output.getMaxStackSize();
 			}
 		}

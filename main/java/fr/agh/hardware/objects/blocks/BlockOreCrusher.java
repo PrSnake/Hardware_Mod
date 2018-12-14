@@ -18,10 +18,12 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -34,6 +36,7 @@ public class BlockOreCrusher extends BlockBase {
 	
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyBool BURNING = PropertyBool.create("burning");
+	private static boolean keepInventory;
 
 	public BlockOreCrusher(String name,CreativeTabs tab) {
 		super(name, tab, Material.IRON, 5.0F, 3.0F);
@@ -41,6 +44,25 @@ public class BlockOreCrusher extends BlockBase {
 		setSoundType(SoundType.METAL);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
 	}
+	
+	/**
+     * Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
+     */
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
+    {
+        if (!keepInventory)
+        {
+            TileEntity tileentity = worldIn.getTileEntity(pos);
+
+            if (tileentity instanceof TileEntityFurnace)
+            {
+                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityFurnace)tileentity);
+                worldIn.updateComparatorOutputLevel(pos, this);
+            }
+        }
+
+        super.breakBlock(worldIn, pos, state);
+    }
 	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) 
@@ -88,9 +110,18 @@ public class BlockOreCrusher extends BlockBase {
 	{
 		IBlockState state = worldIn.getBlockState(pos);
 		TileEntity tileentity = worldIn.getTileEntity(pos);
+		keepInventory = true;
 		
-		if(active) worldIn.setBlockState(pos, BlockInit.MACHINES_ORE_CRUSHER.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, true), 3);
-		else worldIn.setBlockState(pos, BlockInit.MACHINES_ORE_CRUSHER.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, false), 3);
+		if(active)
+		{
+			worldIn.setBlockState(pos, BlockInit.MACHINES_ORE_CRUSHER.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, true), 3);
+		}
+		else
+		{
+			worldIn.setBlockState(pos, BlockInit.MACHINES_ORE_CRUSHER.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, false), 3);
+		}
+		
+		keepInventory = false;
 		
 		if(tileentity != null) 
 		{
@@ -147,13 +178,15 @@ public class BlockOreCrusher extends BlockBase {
 		return new BlockStateContainer(this, new IProperty[] {BURNING,FACING});
 	}
 	
+	/* Deprecated
 	@Override
 	public IBlockState getStateFromMeta(int meta) 
 	{
-		EnumFacing facing = EnumFacing.getFront(meta);
+		//EnumFacing facing = EnumFacing.getFront(meta);
+		EnumFacing facing = EnumFacing.getAxisDirection();
 		if(facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
 		return this.getDefaultState().withProperty(FACING, facing);
-	}
+	}*/
 	
 	@Override
 	public int getMetaFromState(IBlockState state) 

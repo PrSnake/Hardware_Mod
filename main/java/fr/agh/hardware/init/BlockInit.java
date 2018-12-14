@@ -20,6 +20,6 @@ public class BlockInit {
 	public static final Block ORE_VANADIUM = new BlockOreBase("block_ore_vanadium", ItemInit.RAW_VANADIUM);
 	
 	// Machines
-	public static final Block MACHINES_ORE_CRUSHER = new BlockOreCrusher("block_ore_crusher", ModHardware.MACHINES_TAB);
+	public static final Block MACHINES_ORE_CRUSHER = new BlockOreCrusher("block_ore_crusher", CreativeTabInit.MACHINES_TAB);
 	
 }

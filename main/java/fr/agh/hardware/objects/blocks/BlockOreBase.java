@@ -4,6 +4,7 @@ import java.util.Random;
 
 import fr.agh.hardware.ModHardware;
 import fr.agh.hardware.init.BlockInit;
+import fr.agh.hardware.init.CreativeTabInit;
 import fr.agh.hardware.init.ItemInit;
 import fr.agh.hardware.util.HardwareReference;
 import fr.agh.hardware.util.interfaces.IHasModel;
@@ -20,7 +21,7 @@ public class BlockOreBase extends BlockBase implements IHasModel {
 	private Item loot = null;
 	
 	public BlockOreBase(String name, Item item) {
-		super(name, ModHardware.MINERALS_TAB, MATERIAL,5.0F,3.0F);
+		super(name, CreativeTabInit.MINERALS_TAB, MATERIAL,5.0F,3.0F);
 		
 		loot = item;
 	}

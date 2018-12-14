@@ -22,7 +22,7 @@ public class HardwareClient extends HardwareCommon {
 	@Override
 	public void registerItemRenderer(Item item, int meta, String id) {
 		if (meta < 0) meta = 0;
-		String resourceName = item.getUnlocalizedName().substring(5).replace('.', ':');
+		String resourceName = item.getTranslationKey().substring(5).replace('.', ':');
 		if (meta > 0) resourceName += "_m" + String.valueOf(meta);
 		
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(resourceName, id));

@@ -2,10 +2,12 @@ package fr.agh.hardware.util.handlers;
 
 import fr.agh.hardware.ModHardware;
 import fr.agh.hardware.init.BlockInit;
+import fr.agh.hardware.init.CreativeTabInit;
 import fr.agh.hardware.init.ItemInit;
 import fr.agh.hardware.util.interfaces.IHasModel;
 import fr.agh.hardware.world.gen.ores.WorldGenCustomOres;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;

@@ -83,7 +83,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 		this.burnTime = compound.getInteger("BurnTime");
 		this.cookTime = compound.getInteger("CookTime");
 		this.totalCookTime = compound.getInteger("CookTimeTotal");
-		this.currentBurnTime = getItemBurnTime((ItemStack)this.handler.getStackInSlot(2));
+		this.currentBurnTime = getItemBurnTime((ItemStack)this.handler.getStackInSlot(1));
 		
 		if(compound.hasKey("CustomName", 8)) this.setCustomName(compound.getString("CustomName"));
 	}

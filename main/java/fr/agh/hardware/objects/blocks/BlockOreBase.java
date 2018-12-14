@@ -21,7 +21,7 @@ public class BlockOreBase extends BlockBase implements IHasModel {
 	private Item loot = null;
 	
 	public BlockOreBase(String name, Item item) {
-		super(name, CreativeTabInit.MINERALS_TAB, MATERIAL,5.0F,3.0F);
+		super(name, CreativeTabInit.TAB_MINERALS, MATERIAL,5.0F,3.0F);
 		
 		loot = item;
 	}

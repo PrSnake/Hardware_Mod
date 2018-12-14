@@ -3,6 +3,7 @@ package fr.agh.hardware;
 import org.apache.logging.log4j.Logger;
 
 import fr.agh.hardware.util.handlers.RegistryHandler;
+import fr.agh.hardware.init.CreativeTabInit;
 import fr.agh.hardware.proxy.HardwareCommon;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -48,6 +49,7 @@ public class ModHardware {
 	@EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
 		RegistryHandler.postInitRegistries(event);
+		CreativeTabInit.applyCTabsIcons();
 	}
 	
 	@EventHandler

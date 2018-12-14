@@ -12,19 +12,22 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BaseCreativeTab extends CreativeTabs {
 
 	public final String NAME;
-	private Block icon = null;
+	private ItemStack icon = null;
 	
-	public BaseCreativeTab(String label, String image, Block block) {
+	public BaseCreativeTab(String label, String image) {
 		super(HardwareReference.MODID + "." + label);
 		setBackgroundImageName(image);
 		NAME = label;
-		icon = block;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public ItemStack createIcon() {
-		return new ItemStack(Item.getItemFromBlock(icon));
+		return icon.copy();
+	}
+	
+	public void setIcon(ItemStack stack) {
+		icon = stack;
 	}
 
 	@Override

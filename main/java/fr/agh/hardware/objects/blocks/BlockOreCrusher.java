@@ -39,30 +39,30 @@ public class BlockOreCrusher extends BlockBase {
 	private static boolean keepInventory;
 
 	public BlockOreCrusher(String name,CreativeTabs tab) {
-		super(name, tab, Material.IRON, 5.0F, 3.0F);
+	    super(name, tab, Material.IRON, 5.0F, 3.0F);
 		
-		setSoundType(SoundType.METAL);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
+	    setSoundType(SoundType.METAL);
+	    this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
 	}
 	
 	/**
-     * Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
-     */
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
-        if (!keepInventory)
-        {
-            TileEntity tileentity = worldIn.getTileEntity(pos);
-
-            if (tileentity instanceof TileEntityFurnace)
+	* Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
+	*/
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
+	{
+	    if (!keepInventory)
             {
-                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityFurnace)tileentity);
-                worldIn.updateComparatorOutputLevel(pos, this);
+                TileEntity tileentity = worldIn.getTileEntity(pos);
+    
+                if (tileentity instanceof TileEntityFurnace)
+                {
+                    InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityFurnace)tileentity);
+                    worldIn.updateComparatorOutputLevel(pos, this);
+                }
             }
-        }
 
-        super.breakBlock(worldIn, pos, state);
-    }
+            super.breakBlock(worldIn, pos, state);
+        }
 	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) 

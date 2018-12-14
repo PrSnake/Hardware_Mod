@@ -62,6 +62,7 @@ public class RegistryHandler {
 	
 	public static void postInitRegistries(FMLPostInitializationEvent event)
 	{
+		
 	}
 	
 	public static void serverRegistries(FMLServerStartingEvent event)

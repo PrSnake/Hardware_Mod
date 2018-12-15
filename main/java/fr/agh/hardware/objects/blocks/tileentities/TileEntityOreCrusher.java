@@ -46,38 +46,32 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	private boolean dirty = false;
 	
 	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing) 
-	{
+	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
 		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return true;
 		else return false;
 	}
 	
 	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing) 
-	{
+	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
 		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return (T) this.handler;
 		return super.getCapability(capability, facing);
 	}
 	
-	public boolean hasCustomName() 
-	{
+	public boolean hasCustomName() {
 		return this.customName != null && !this.customName.isEmpty();
 	}
 	
-	public void setCustomName(String customName) 
-	{
+	public void setCustomName(String customName) {
 		this.customName = customName;
 	}
 	
 	@Override
-	public ITextComponent getDisplayName() 
-	{
+	public ITextComponent getDisplayName() {
 		return this.hasCustomName() ? new TextComponentString(this.customName) : new TextComponentTranslation("container.ore_crusher");
 	}
 	
 	@Override
-	public void readFromNBT(NBTTagCompound compound)
-	{
+	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		this.handler.deserializeNBT(compound.getCompoundTag("Inventory"));
 		this.burnTime = compound.getInteger("BurnTime");
@@ -89,8 +83,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	}
 	
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) 
-	{
+	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
 		compound.setInteger("BurnTime", (short)this.burnTime);
 		compound.setInteger("CookTime", (short)this.cookTime);
@@ -101,92 +94,74 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 		return compound;
 	}
 	
-	public boolean isBurning() 
-	{
+	public boolean isBurning() {
 		return this.burnTime > 0;
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public static boolean isBurning(TileEntityOreCrusher te) 
-	{
+	public static boolean isBurning(TileEntityOreCrusher te) {
 		return te.getField(1) > 0;
 	}
 	
 	// méthode appelée à chaque tic pour actualiser le bloc
 	@Override
-	public void update() 
-	{
+	public void update() {
 		
 		boolean isBurning = this.isBurning();
-        boolean dirty = false;
+		boolean dirty = false;
 
-        if (this.isBurning())
-        {
-            --this.burnTime;
-        }
+		if (this.isBurning()) {
+			--this.burnTime;
+		}
 
-        if (!this.world.isRemote)
-        {
-            ItemStack fuel = this.handler.getStackInSlot(1);
+		if (!this.world.isRemote) {
+			ItemStack fuel = this.handler.getStackInSlot(1);
 
-            if (this.isBurning() || !fuel.isEmpty() && !((ItemStack)this.handler.getStackInSlot(0)).isEmpty())
-            {
-                if (!this.isBurning() && this.canSmelt())
-                {
-                    this.burnTime = getItemBurnTime(fuel);
-                    this.currentBurnTime = this.burnTime;
+			if (this.isBurning() || !fuel.isEmpty() && !((ItemStack)this.handler.getStackInSlot(0)).isEmpty()) {
+				if (!this.isBurning() && this.canSmelt()) {
+					this.burnTime = getItemBurnTime(fuel);
+					this.currentBurnTime = this.burnTime;
 
-                    if (this.isBurning())
-                    {
-                        dirty = true;
+					if (this.isBurning()) {
+						dirty = true;
 
-                        if (!fuel.isEmpty())
-                        {
-                            Item item = fuel.getItem();
-                            fuel.shrink(1);
+						if (!fuel.isEmpty()) {
+							Item item = fuel.getItem();
+							fuel.shrink(1);
 
-                            if (fuel.isEmpty())
-                            {
-                                ItemStack item1 = item.getContainerItem(fuel);
-                                this.handler.setStackInSlot(1, item1);
-                            }
-                        }
-                    }
-                }
+							if (fuel.isEmpty()) {
+								ItemStack item1 = item.getContainerItem(fuel);
+								this.handler.setStackInSlot(1, item1);
+							}
+						}
+					}
+				}
 
-                if (this.isBurning() && this.canSmelt())
-                {
-                    ++this.cookTime;
+				if (this.isBurning() && this.canSmelt()) {
+					++this.cookTime;
 
-                    if (this.cookTime == this.totalCookTime)
-                    {
-                        this.cookTime = 0;
-                        this.totalCookTime = this.getCookTime(this.handler.getStackInSlot(0));
-                        this.smeltItem();
-                        dirty = true;
-                    }
-                }
-                else
-                {
-                    this.cookTime = 0;
-                }
-            }
-            else if (!this.isBurning() && this.cookTime > 0)
-            {
-                this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
-            }
+					if (this.cookTime == this.totalCookTime) {
+						this.cookTime = 0;
+						this.totalCookTime = this.getCookTime(this.handler.getStackInSlot(0));
+						this.smeltItem();
+						dirty = true;
+					}
+				} else {
+					this.cookTime = 0;
+				}
+			} else if (!this.isBurning() && this.cookTime > 0) {
+				this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
+			}
 
-            if (isBurning != this.isBurning())
-            {
-            	dirty = true;
-                BlockOreCrusher.setState(this.isBurning(), this.world, this.pos);
-            }
-        }
+			if (isBurning != this.isBurning()) {
+				dirty = true;
+				BlockOreCrusher.setState(this.isBurning(), this.world, this.pos);
+			}
+		}
 
-        if (dirty)
-        {
-            this.markDirty();
-        }
+		if (dirty) {
+			this.markDirty();
+		}
 	}
 	
 	private void smeltItem() {
@@ -195,19 +170,13 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 		ItemStack output = this.handler.getStackInSlot(2);
 		ItemStack result = RecipesOreCrusher.getInstance().getOreCrushingResult(input);
 		
-		if(!result.isEmpty())
-		{
-			if (output.isEmpty())
-			{
+		if(!result.isEmpty()) {
+			if (output.isEmpty()) {
 				this.handler.insertItem(2, result, false);
 				output.setCount(2);
-			}
-			else if (output == result)
-			{
+			} else if (output == result) {
 				output.grow(2);
-			}
-			else if (output != result)
-			{
+			} else if (output != result) {
 				return;
 			}
 			input.shrink(1);
@@ -220,28 +189,22 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 		return this.totalCookTime;
 	}
 
-	private boolean canSmelt() 
-	{
+	private boolean canSmelt()  {
 		
-		if(((ItemStack)this.handler.getStackInSlot(0)).isEmpty() || ((ItemStack)this.handler.getStackInSlot(1)).isEmpty())
-		{
+		if(((ItemStack)this.handler.getStackInSlot(0)).isEmpty() || ((ItemStack)this.handler.getStackInSlot(1)).isEmpty()) {
 			return false;
-		}
-		else 
-		{
+		} else {
 			ItemStack result = RecipesOreCrusher.getInstance().getOreCrushingResult((ItemStack)this.handler.getStackInSlot(0));
 			
-			if(result.isEmpty()) return false;
-			else
-			{
+			if(result.isEmpty()) {
+				return false;
+			} else {
 				ItemStack output = (ItemStack)this.handler.getStackInSlot(2);
-				if(output.isEmpty())
-				{
+				if(output.isEmpty()) {
 					return true;
 				}
 				
-				if(!output.isItemEqual(result))
-				{
+				if(!output.isItemEqual(result)) {
 					return false;
 				}
 				
@@ -258,15 +221,13 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	 * @param fuel Carburant qui est inséré dans le slot 1 de la machine
 	 * @return retourne la valeur sous forme d'entier du nombre de tic pendant lequel l'item peut servir de carburant
 	 */
-	public static int getItemBurnTime(ItemStack fuel) 
-	{
-		if(fuel.isEmpty()) return 0;
-		else 
-		{
+	public static int getItemBurnTime(ItemStack fuel) {
+		if(fuel.isEmpty()) {
+			return 0;
+		} else {
 			Item item = fuel.getItem();
 
-			if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.AIR) 
-			{
+			if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.AIR) {
 				Block block = Block.getBlockFromItem(item);
 
 				if (block == Blocks.WOODEN_SLAB) return 150;
@@ -290,48 +251,43 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 		}
 	}
 	
-	public static boolean isItemFuel(ItemStack fuel)
-	{
+	public static boolean isItemFuel(ItemStack fuel) {
 		return getItemBurnTime(fuel) > 0;
 	}
 	
-	public boolean isUsableByPlayer(EntityPlayer player) 
-	{
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		return this.world.getTileEntity(this.pos) != this ? false : player.getDistanceSq((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D;
 	}
 	
-	public int getField(int id) 
-	{
-		switch(id) 
-		{
-		case 0:
-			return this.burnTime;
-		case 1:
-			return this.currentBurnTime;
-		case 2:
-			return this.cookTime;
-		case 3:
-			return this.totalCookTime;
-		default:
-			return 0;
+	public int getField(int id) {
+		switch(id) {
+			case 0:
+				return this.burnTime;
+			case 1:
+				return this.currentBurnTime;
+			case 2:
+				return this.cookTime;
+			case 3:
+				return this.totalCookTime;
+			default:
+				return 0;
 		}
 	}
 	
 	public void setField(int id, int value) 
 	{
-		switch(id) 
-		{
-		case 0:
-			this.burnTime = value;
-			break;
-		case 1:
-			this.currentBurnTime = value;
-			break;
-		case 2:
-			this.cookTime = value;
-			break;
-		case 3:
-			this.totalCookTime = value;
+		switch(id) {
+			case 0:
+				this.burnTime = value;
+				break;
+			case 1:
+				this.currentBurnTime = value;
+				break;
+			case 2:
+				this.cookTime = value;
+				break;
+			case 3:
+				this.totalCookTime = value;
 		}
 	}
 

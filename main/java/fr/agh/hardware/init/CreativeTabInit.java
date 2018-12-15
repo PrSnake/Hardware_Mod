@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class CreativeTabInit {
+	
 	public static final List<BaseCreativeTab> CREATIVE_TABS = new ArrayList<BaseCreativeTab>();
 	
 	public static final BaseCreativeTab TAB_MINERALS = new BaseCreativeTab("tab_hardware_minerals", "item_search.png");
@@ -19,9 +20,9 @@ public class CreativeTabInit {
 	public static final BaseCreativeTab TAB_COMPONENTS = new BaseCreativeTab("tab_hardware_components", "item_search.png");
 	
 	public static void applyCTabsIcons() {
-	    TAB_MINERALS.setIcon(new ItemStack(Item.getItemFromBlock(BlockInit.ORE_BAUXITE)));
-	    TAB_TOOLS.setIcon(new ItemStack(Items.DIAMOND_AXE));
-	    TAB_MACHINES.setIcon(new ItemStack(Item.getItemFromBlock(BlockInit.MACHINES_ORE_CRUSHER)));
-	    TAB_COMPONENTS.setIcon(new ItemStack(ItemInit.GEARS_IRON));
+		TAB_MINERALS.setIcon(new ItemStack(Item.getItemFromBlock(BlockInit.ORE_BAUXITE)));
+		TAB_TOOLS.setIcon(new ItemStack(Items.DIAMOND_AXE));
+		TAB_MACHINES.setIcon(new ItemStack(Item.getItemFromBlock(BlockInit.MACHINES_ORE_CRUSHER)));
+		TAB_COMPONENTS.setIcon(new ItemStack(ItemInit.GEARS_IRON));
 	}
 }

@@ -39,10 +39,10 @@ public class BlockOreCrusher extends BlockBase {
 	private static boolean keepInventory;
 
 	public BlockOreCrusher(String name,CreativeTabs tab) {
-	    super(name, tab, Material.IRON, 5.0F, 3.0F);
+		super(name, tab, Material.IRON, 5.0F, 3.0F);
 		
-	    setSoundType(SoundType.METAL);
-	    this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
+		setSoundType(SoundType.METAL);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
 	}
 	
 	/**

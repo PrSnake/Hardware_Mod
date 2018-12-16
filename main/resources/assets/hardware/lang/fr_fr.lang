@@ -29,8 +29,12 @@ item.hardware.item_ingot_lead.name=Lingot de Plomb
 tile.hardware.block_ore_crusher.name=Broyeur de minerai
 
 # Conteneurs
-container.ore_crusher=Broyeur de minerai
+container.hardware.ore_crusher.name=Broyeur de minerai
 
+# Types de carburants
+fueltype.hardware.thermic.name=Thermique
+fueltype.hardware.electric.name=Electrique
+fueltype.hardware.nuclear.name=Nucléaire
 
 # Composants
 item.hardware.item_plate_iron.name=Plaque de fer

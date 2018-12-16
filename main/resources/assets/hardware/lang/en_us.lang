@@ -29,7 +29,12 @@ item.hardware.item_ingot_lead.name=Lead Ingot
 tile.hardware.block_ore_crusher.name=Ore Crusher
 
 # Containers
-container.ore_crusher=Ore Crusher
+container.hardware.ore_crusher.name=Ore Crusher
+
+# Fuels types
+fueltype.hardware.thermic.name=Thermic
+fueltype.hardware.electric.name=Electric
+fueltype.hardware.nuclear.name=Nuclear
 
 # Components
 item.hardware.item_plate_iron.name=Iron Plate

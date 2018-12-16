@@ -2,7 +2,7 @@ package fr.agh.hardware.objects.blocks.tileentities;
 
 import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import fr.agh.hardware.objects.blocks.recipes.RecipesOreCrusher;
-import fr.agh.hardware.util.helper.FuelType;
+import fr.agh.hardware.util.helper.Fuel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
@@ -226,6 +226,9 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 		if(fuel.isEmpty()) {
 			return 0;
 		} else {
+			return Fuel.getInstance().getItemBurnTime(fuel.getItem());
+		}
+			/*
 			Item item = fuel.getItem();
 
 			if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.AIR) {
@@ -249,7 +252,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 			return GameRegistry.getFuelValue(fuel);
 			
 			//return ForgeEventFactory.getItemBurnTime(fuel);
-		}
+			*/
 	}
 	
 	public static boolean isItemFuel(ItemStack fuel) {
@@ -258,6 +261,18 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	
 	public boolean isUsableByPlayer(EntityPlayer player) {
 		return this.world.getTileEntity(this.pos) != this ? false : player.getDistanceSq((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D;
+	}
+	
+	public ItemStack getStackInInputSlot() {
+		return this.handler.getStackInSlot(0);
+	}
+	
+	public ItemStack getStackInFuelSlot() {
+		return this.handler.getStackInSlot(1);
+	}
+	
+	public ItemStack getStackInResultSlot() {
+		return this.handler.getStackInSlot(2);
 	}
 	
 	public int getField(int id) {

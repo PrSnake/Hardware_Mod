@@ -45,7 +45,8 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	/** The number of ticks that a fresh copy of the currently-burning item would keep the furnace burning for */
 	private int currentBurnTime;
 	private int cookTime;
-	private int totalCookTime = 200;
+	private int totalCookTime = 50;
+	private boolean dirty = false;
 	
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
@@ -96,11 +97,6 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 		return compound;
 	}
 	
-	/** Returns the maximum stack size for a inventory slot. Seems to always be 64, possibly will be extended.*/
-	public int getInventoryStackSizeLimit() {
-		return 64;
-	}
-	
 	public boolean isBurning() {
 		return this.burnTime > 0;
 	}
@@ -114,87 +110,83 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	@Override
 	public void update() {
 		
-		boolean flagIsBurning = this.isBurning(); 
-		boolean flagIsDirty = false;
-		
+		boolean isBurning = this.isBurning();
+		boolean dirty = false;
+
 		if (this.isBurning()) {
 			--this.burnTime;
 		}
-		
+
 		if (!this.world.isRemote) {
-			
 			ItemStack fuelSlot = this.getStackInFuelSlot();
-			
-			if (this.isBurning() || !fuelSlot.isEmpty() && !(this.getStackInInputSlot().isEmpty())) {
-				
+			ItemStack inputSlot = this.getStackInInputSlot();
+
+			if (this.isBurning() || !fuelSlot.isEmpty() && !inputSlot.isEmpty()) {
 				if (!this.isBurning() && this.canSmelt()) {
-					this.burnTime = this.getItemBurnTime(fuelSlot);
+					this.burnTime = getItemBurnTime(fuelSlot);
 					this.currentBurnTime = this.burnTime;
-					
+
 					if (this.isBurning()) {
-						flagIsDirty = true;
-						
+						dirty = true;
+
 						if (!fuelSlot.isEmpty()) {
-							Item itemFuelSlot = fuelSlot.getItem();
+							Item item = fuelSlot.getItem();
 							fuelSlot.shrink(1);
-							
+
 							if (fuelSlot.isEmpty()) {
-								/**
-								 *  If anyone wonders what containerItem is, it's used to keep items after a craft.
-								 *  For example, after crafting cake, the milk buckets turn into buckets.
-								 *  Forge uses the container item to get the item that an ingredient transforms into.
-								 *  Thus, buckets are milk buckets' container item.
-								 *  (If there isn't a container item, then Itemstack.empty is returned) 
-								 */
-								this.setStackInFuelSlot((ItemStack)itemFuelSlot.getContainerItem(fuelSlot));
+								ItemStack item1 = item.getContainerItem(fuelSlot);
+								this.handler.setStackInSlot(1, item1);
 							}
 						}
 					}
-					
 				}
-				
+
 				if (this.isBurning() && this.canSmelt()) {
 					++this.cookTime;
-					
+
 					if (this.cookTime == this.totalCookTime) {
 						this.cookTime = 0;
-						this.totalCookTime = this.getCookTime(this.getStackInInputSlot());
+						this.totalCookTime = this.getCookTime(inputSlot);
 						this.smeltItem();
-						flagIsDirty = true;
+						dirty = true;
 					}
 				} else {
 					this.cookTime = 0;
 				}
-				
 			} else if (!this.isBurning() && this.cookTime > 0) {
 				this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
 			}
-			
-			if (flagIsBurning != this.isBurning()) {
-				flagIsDirty = true;
+
+			if (isBurning != this.isBurning()) {
+				dirty = true;
 				BlockOreCrusher.setState(this.isBurning(), this.world, this.pos);
 			}
 		}
-		
-		if (flagIsDirty) {
+
+		if (dirty) {
 			this.markDirty();
 		}
 	}
 	
 	private void smeltItem() {
-		if (this.canSmelt()) {
-			ItemStack inputStack = this.getStackInInputSlot();
-			ItemStack outputStack = this.getStackInOutputSlot();
-			ItemStack resultStack = RecipesOreCrusher.getInstance().getOreCrushingResult(getStackInInputSlot());
-			
-			if (outputStack.isEmpty()) {
-				this.setStackInOutputSlot(resultStack.copy());
-			} else if (outputStack.getItem() == resultStack.getItem()) {
-				outputStack.grow(2); // TODO use a variable if we want to implement upgrade system
-				// outputStack.grow(resultStack.getCount()); // If we deal with results upgrade in RecipesOreCrusher use this instead
+		// TODO Auto-generated method stub
+		ItemStack inputSlot = this.getStackInInputSlot();
+		ItemStack outputSlot = this.getStackInResultSlot();
+		ItemStack result = RecipesOreCrusher.getInstance().getOreCrushingResult(inputSlot);
+		
+		if(!result.isEmpty()) {
+			if (outputSlot.isEmpty()) {
+				this.handler.insertItem(2, result, false);
+				outputSlot.grow(2);
+			} else if (outputSlot == result) {
+				outputSlot.grow(2);
+			} else if (outputSlot != result) {
+				return;
 			}
-			inputStack.shrink(1);
+			inputSlot.shrink(1);
 		}
+		
+		return;
 	}
 
 	private int getCookTime(ItemStack stackInSlot) {
@@ -202,32 +194,34 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	}
 
 	private boolean canSmelt()  {
-		if (this.getStackInInputSlot().isEmpty()) {
+		ItemStack inputSlot = this.getStackInInputSlot();
+		ItemStack fuelSlot = this.getStackInFuelSlot();
+		
+		if(inputSlot.isEmpty() || (fuelSlot.isEmpty() && !this.isBurning())) {
 			return false;
-		} else {
-			ItemStack resultStack = RecipesOreCrusher.getInstance().getOreCrushingResult(getStackInInputSlot());
-			if (resultStack.isEmpty()) {
-				return false;
-			} else {
-				ItemStack outputStack = this.getStackInOutputSlot();
-				// TODO set an offset where getCount is used because resultStack is always a stack of 1 Item (it's used to facilitate ore crusher upgrade system where it will only edit offset and multipliers)
-				if (outputStack.isEmpty()) {
+		} else if (Fuel.getInstance().isFuelCompatible(fuelSlot.getItem(), this.fuelType)) {
+			ItemStack result = RecipesOreCrusher.getInstance().getOreCrushingResult((ItemStack)this.getStackInInputSlot());
+			if(!result.isEmpty()) {
+				ItemStack outputSlot = this.getStackInResultSlot();
+				if(outputSlot.isEmpty()) {
 					return true;
-				} else if (outputStack != resultStack) {
-					return false;
-				} else if ((outputStack.getCount() + 2) <= this.getInventoryStackSizeLimit() && (outputStack.getCount() + 2) <= outputStack.getMaxStackSize()) {
-					return true;
-				} else {
-					return outputStack.getCount() + 2 <= resultStack.getMaxStackSize();
 				}
+				
+				if(!outputSlot.isItemEqual(result)) {
+					return false;
+				}
+				
+				int res = outputSlot.getCount() + 2; // TODO if there is upgrade for the Ore Crusher please edit offset
+				return res <= 64 && res <= outputSlot.getMaxStackSize();
 			}
 		}
+		return false;
 	}
 	
 	/**
-	 * Get the number of ticks that a certain ItemStack can last
-	 * @param fuel The content of the fuel slot
-	 * @return number of ticks that a fresh item of the input can last, 0 if it's empty or if it's not a fuel
+	 * Permet d'obtenir le nombre de tic durant lequel une item peut être utilisée comme carburant
+	 * @param fuel Carburant qui est inséré dans le slot 1 de la machine
+	 * @return retourne la valeur sous forme d'entier du nombre de tic pendant lequel l'item peut servir de carburant
 	 */
 	public static int getItemBurnTime(ItemStack fuel) {
 		if(fuel.isEmpty()) {
@@ -245,24 +239,12 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 		return this.handler.getStackInSlot(0);
 	}
 	
-	public void setStackInInputSlot(ItemStack stack) {
-		this.handler.setStackInSlot(0, stack);
-	}
-	
 	public ItemStack getStackInFuelSlot() {
 		return this.handler.getStackInSlot(1);
 	}
 	
-	public void setStackInFuelSlot (ItemStack stack) {
-		this.handler.setStackInSlot(1, stack);
-	}
-	
-	public ItemStack getStackInOutputSlot() {
+	public ItemStack getStackInResultSlot() {
 		return this.handler.getStackInSlot(2);
-	}
-	
-	public void setStackInOutputSlot(ItemStack stack) {
-		this.handler.setStackInSlot(2, stack);
 	}
 	
 	public int getField(int id) {

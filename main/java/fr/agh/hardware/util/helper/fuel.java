@@ -125,7 +125,11 @@ public class Fuel {
 	}
 	
 	public int getItemBurnTime(Item item) {
-		return this.itemBurnTime.get(item);
+		if (this.isItemFuel(item)) {
+			return this.itemBurnTime.get(item);
+		} else {
+			return 0;
+		}
 	}
 	
 	public void setItemBurnTime(Item item, int ticks) {

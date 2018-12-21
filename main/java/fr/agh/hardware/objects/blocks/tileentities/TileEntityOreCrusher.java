@@ -189,6 +189,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 			
 			if (outputStack.isEmpty()) {
 				this.setStackInOutputSlot(resultStack.copy());
+				this.getStackInOutputSlot().grow(1);
 			} else if (outputStack.getItem() == resultStack.getItem()) {
 				outputStack.grow(2); // TODO use a variable if we want to implement upgrade system
 				// outputStack.grow(resultStack.getCount()); // If we deal with results upgrade in RecipesOreCrusher use this instead
@@ -213,7 +214,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 				// TODO set an offset where getCount is used because resultStack is always a stack of 1 Item (it's used to facilitate ore crusher upgrade system where it will only edit offset and multipliers)
 				if (outputStack.isEmpty()) {
 					return true;
-				} else if (outputStack != resultStack) {
+				} else if (outputStack.getItem() != resultStack.getItem()) {
 					return false;
 				} else if ((outputStack.getCount() + 2) <= this.getInventoryStackSizeLimit() && (outputStack.getCount() + 2) <= outputStack.getMaxStackSize()) {
 					return true;

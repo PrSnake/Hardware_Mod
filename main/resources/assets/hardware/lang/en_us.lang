@@ -3,6 +3,7 @@ itemGroup.hardware.tab_hardware_minerals=Minerals
 itemGroup.hardware.tab_hardware_components=Components
 itemGroup.hardware.tab_hardware_tools=Tools
 itemGroup.hardware.tab_hardware_machines=Machines
+itemGroup.hardware.tab_hardware_machines_upgrades=Machines Upgrades
 
 # Ore blocks
 tile.hardware.block_ore_cobalt.name=Cobalt Ore
@@ -41,3 +42,8 @@ item.hardware.item_plate_iron.name=Iron Plate
 item.hardware.item_rode_iron.name=Iron Rode
 item.hardware.item_gears_iron.name=Iron Gears
 item.hardware.item_grinder_iron.name=Iron Grinder
+
+# Machines Upgrades
+item.hardware.item_ore_crusher_upgrade_fuel_efficiency.name=Ore Crusher - Fuel+
+item.hardware.item_ore_crusher_upgrade_production.name=Ore Crusher - Production+
+item.hardware.item_ore_crusher_upgrade_speed.name=Ore Crusher - Speed+

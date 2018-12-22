@@ -18,11 +18,13 @@ public class CreativeTabInit {
 	public static final BaseCreativeTab TAB_TOOLS = new BaseCreativeTab("tab_hardware_tools", "item_search.png");
 	public static final BaseCreativeTab TAB_MACHINES = new BaseCreativeTab("tab_hardware_machines", "item_search.png");
 	public static final BaseCreativeTab TAB_COMPONENTS = new BaseCreativeTab("tab_hardware_components", "item_search.png");
+	public static final BaseCreativeTab TAB_MACHINES_UPGRADES = new BaseCreativeTab("tab_hardware_machines_upgrades", "item_search.png");
 	
 	public static void applyCTabsIcons() {
 		TAB_MINERALS.setIcon(new ItemStack(Item.getItemFromBlock(BlockInit.ORE_BAUXITE)));
 		TAB_TOOLS.setIcon(new ItemStack(Items.DIAMOND_AXE));
 		TAB_MACHINES.setIcon(new ItemStack(Item.getItemFromBlock(BlockInit.MACHINES_ORE_CRUSHER)));
 		TAB_COMPONENTS.setIcon(new ItemStack(ItemInit.GEARS_IRON));
+		TAB_MACHINES_UPGRADES.setIcon(new ItemStack(ItemInit.ORE_CRUSHER_UPGRADE_FUEL_EFFICIENCY));
 	}
 }

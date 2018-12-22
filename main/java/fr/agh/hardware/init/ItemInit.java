@@ -36,8 +36,8 @@ public class ItemInit {
 	public static final Item GRINDER_IRON = new ItemBase("item_grinder_iron", CreativeTabInit.TAB_COMPONENTS);
 	
 	// Upgrades
-	// public static final Item  = new ItemBase("item_", ModHardware.COMPONENTS_TAB);
-	public static final Item ORE_CRUSHER_UPGRADE_FUEL_EFFICIENCY = new ItemBase("item_ore_crusher_upgrade_fuel_efficiency", CreativeTabInit.TAB_COMPONENTS);
-	public static final Item ORE_CRUSHER_UPGRADE_PRODUCTION = new ItemBase("item_ore_crusher_upgrade_production", CreativeTabInit.TAB_COMPONENTS);
-	public static final Item ORE_CRUSHER_UPGRADE_SPEED = new ItemBase("item_ore_crusher_upgrade_speed", CreativeTabInit.TAB_COMPONENTS);
+	// public static final Item  = new ItemBase("item_", ModHardware.TAB_MACHINES_UPGRADES);
+	public static final Item ORE_CRUSHER_UPGRADE_FUEL_EFFICIENCY = new ItemBase("item_ore_crusher_upgrade_fuel_efficiency", CreativeTabInit.TAB_MACHINES_UPGRADES);
+	public static final Item ORE_CRUSHER_UPGRADE_PRODUCTION = new ItemBase("item_ore_crusher_upgrade_production", CreativeTabInit.TAB_MACHINES_UPGRADES);
+	public static final Item ORE_CRUSHER_UPGRADE_SPEED = new ItemBase("item_ore_crusher_upgrade_speed", CreativeTabInit.TAB_MACHINES_UPGRADES);
 }

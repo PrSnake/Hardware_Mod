@@ -31,6 +31,8 @@ import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 
 public class BlockOreCrusher extends BlockBase {
 	
@@ -49,12 +51,11 @@ public class BlockOreCrusher extends BlockBase {
 	* Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
 	*/
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		if (!keepInventory) {
-			TileEntity tileentity = worldIn.getTileEntity(pos);
-			if (tileentity instanceof TileEntityFurnace) {
-				InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityFurnace)tileentity);
-				worldIn.updateComparatorOutputLevel(pos, this);
-			}
+		TileEntityOreCrusher te = (TileEntityOreCrusher) worldIn.getTileEntity(pos);
+		IItemHandler handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+		for (int slot = 0; slot < handler.getSlots(); slot++) {
+			ItemStack stack = handler.getStackInSlot(slot);
+			InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), stack);
 		}
 		super.breakBlock(worldIn, pos, state);
 	}

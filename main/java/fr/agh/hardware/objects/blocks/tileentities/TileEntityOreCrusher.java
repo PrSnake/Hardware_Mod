@@ -10,6 +10,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemHoe;
@@ -20,11 +22,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -33,7 +37,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 
-public class TileEntityOreCrusher extends TileEntity implements ITickable{
+public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapabilityProvider {
 
 	private ItemStackHandler handler = new ItemStackHandler(3);
 	private String customName;
@@ -49,13 +53,17 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return true;
+		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+			return true;
+		}
 		else return false;
 	}
 	
 	@Override
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return (T) this.handler;
+		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+			return (T) this.handler;
+		}
 		return super.getCapability(capability, facing);
 	}
 	
@@ -75,7 +83,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
-		this.handler.deserializeNBT(compound.getCompoundTag("Inventory"));
+		this.handler.deserializeNBT(compound.getCompoundTag("ItemStackHandler"));
 		this.burnTime = compound.getInteger("BurnTime");
 		this.cookTime = compound.getInteger("CookTime");
 		this.totalCookTime = compound.getInteger("CookTimeTotal");
@@ -90,7 +98,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 		compound.setInteger("BurnTime", (short)this.burnTime);
 		compound.setInteger("CookTime", (short)this.cookTime);
 		compound.setInteger("CookTimeTotal", (short)this.totalCookTime);
-		compound.setTag("Inventory", this.handler.serializeNBT());
+		compound.setTag("ItemStackHandler", this.handler.serializeNBT());
 		
 		if(this.hasCustomName()) compound.setString("CustomName", this.customName);
 		return compound;
@@ -297,5 +305,4 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable{
 				this.totalCookTime = value;
 		}
 	}
-
 }

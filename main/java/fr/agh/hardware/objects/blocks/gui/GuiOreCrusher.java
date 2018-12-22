@@ -38,12 +38,12 @@ public class GuiOreCrusher extends GuiContainer{
 		this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
 		
 		if(TileEntityOreCrusher.isBurning(tileentity)) {
-			int k = this.getBurnLeftScaled(14);
-			this.drawTexturedModalRect(this.guiLeft + 57, this.guiTop + 37 + 12 - k, 176, 12 - k, 14, k + 1);
+			int k = this.getBurnLeftScaled(16);
+			this.drawTexturedModalRect(this.guiLeft + 56, this.guiTop + 35 + 16 - k, 176, 16 - k, 16, k + 1);
 		}
 		
 		int l = this.getCookProgressScaled(24);
-		this.drawTexturedModalRect(this.guiLeft + 79, this.guiTop + 35, 176, 14, l + 1, 16);
+		this.drawTexturedModalRect(this.guiLeft + 79, this.guiTop + 35, 176, 16, l + 1, 16);
 	}
 	
 	// Flame animation progression

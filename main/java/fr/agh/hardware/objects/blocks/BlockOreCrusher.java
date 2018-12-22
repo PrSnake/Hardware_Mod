@@ -38,7 +38,6 @@ public class BlockOreCrusher extends BlockBase {
 	
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyBool BURNING = PropertyBool.create("burning");
-	private static boolean keepInventory;
 
 	public BlockOreCrusher(String name,CreativeTabs tab) {
 		super(name, tab, Material.IRON, 5.0F, 3.0F);
@@ -62,17 +61,19 @@ public class BlockOreCrusher extends BlockBase {
 	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		// TODO generic
 		return Item.getItemFromBlock(BlockInit.MACHINES_ORE_CRUSHER);
 	}
 	
 	@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
+		// TODO generic
 		return new ItemStack(BlockInit.MACHINES_ORE_CRUSHER);
 	}
 	
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if(!worldIn.isRemote) {
+		if (!worldIn.isRemote) {
 			playerIn.openGui(ModHardware.instance, HardwareReference.GUI_ORE_CRUSHER, worldIn, pos.getX(), pos.getY(), pos.getZ());
 		}
 		return true;
@@ -98,14 +99,12 @@ public class BlockOreCrusher extends BlockBase {
 	public static void setState(boolean active, World worldIn, BlockPos pos) {
 		IBlockState state = worldIn.getBlockState(pos);
 		TileEntity tileentity = worldIn.getTileEntity(pos);
-		keepInventory = true;
 		
 		if(active) {
 			worldIn.setBlockState(pos, BlockInit.MACHINES_ORE_CRUSHER.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, true), 3);
 		} else {
 			worldIn.setBlockState(pos, BlockInit.MACHINES_ORE_CRUSHER.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, false), 3);
 		}
-		keepInventory = false;
 		if(tileentity != null) {
 			tileentity.validate();
 			worldIn.setTileEntity(pos, tileentity);
@@ -119,6 +118,7 @@ public class BlockOreCrusher extends BlockBase {
 	
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
+		// TODO generic
 		return new TileEntityOreCrusher();
 	}
 	

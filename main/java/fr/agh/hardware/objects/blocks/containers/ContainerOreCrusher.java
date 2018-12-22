@@ -30,7 +30,7 @@ public class ContainerOreCrusher extends Container {
 		// entity, index, Y, X
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 56, 17));	// input
 		this.addSlotToContainer(new SlotItemHandler(handler, 1, 56, 53));	// fuel
-		this.addSlotToContainer(new SlotItemHandler(handler, 2, 112, 31));	// output
+		this.addSlotToContainer(new SlotItemHandler(handler, 2, 116, 35));	// output
 		
 		// player inventory
 		for(int y = 0; y < 3; y++) {

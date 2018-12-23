@@ -39,7 +39,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapabilityProvider {
 
-	private ItemStackHandler handler = new ItemStackHandler(3);
+	private ItemStackHandler handler = new ItemStackHandler(6);
 	private String customName;
 	private ItemStack smelting = ItemStack.EMPTY;
 	private FuelType fuelType = FuelType.THERMIC;
@@ -50,6 +50,10 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 	private int currentBurnTime;
 	private int cookTime;
 	private int totalCookTime = 200;
+	
+	private int fuelModifier;
+	private int speedModifier;
+	private int productionModifier;
 	
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
@@ -109,6 +113,10 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 		return 64;
 	}
 	
+	public int getUpgradeStackSizeLimit() {
+		return 1;
+	}
+	
 	public boolean isBurning() {
 		return this.burnTime > 0;
 	}
@@ -124,6 +132,8 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 		
 		boolean flagIsBurning = this.isBurning(); 
 		boolean flagIsDirty = false;
+		
+		this.checkUpgrades();
 		
 		if (this.isBurning()) {
 			--this.burnTime;
@@ -204,6 +214,10 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 			}
 			inputStack.shrink(1);
 		}
+	}
+	
+	private void checkUpgrades() {
+		
 	}
 
 	private int getCookTime(ItemStack stackInSlot) {

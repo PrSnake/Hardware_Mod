@@ -1,6 +1,6 @@
 {
    "parent": "block/cube_all",
    "textures": {
-       "all": "hardware:blocks/block_ore_copper"
+       "all": "hardware:blocks/block_ore_vanadium_end"
    }
 }

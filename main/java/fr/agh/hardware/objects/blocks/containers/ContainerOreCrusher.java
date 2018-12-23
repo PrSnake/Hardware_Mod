@@ -31,6 +31,9 @@ public class ContainerOreCrusher extends Container {
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 56, 17));	// input
 		this.addSlotToContainer(new SlotItemHandler(handler, 1, 56, 53));	// fuel
 		this.addSlotToContainer(new SlotItemHandler(handler, 2, 116, 35));	// output
+		this.addSlotToContainer(new SlotItemHandler(handler, 3, 9, 9));// Upgrade slot 1
+		this.addSlotToContainer(new SlotItemHandler(handler, 4, 9, 32));// Upgrade slot 2
+		this.addSlotToContainer(new SlotItemHandler(handler, 5, 9, 55));// Upgrade slot 3
 		
 		// player inventory
 		for(int y = 0; y < 3; y++) {
@@ -87,6 +90,8 @@ public class ContainerOreCrusher extends Container {
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
 		
+		// TODO add support to the 3 upgrade slot, they can only take stack of one item
+		
 		ItemStack stackBuffer0 = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 		
@@ -97,7 +102,7 @@ public class ContainerOreCrusher extends Container {
 			
 			if (index == 2) {
 				
-				if (!this.mergeItemStack(stackBuffer1, 3, 39, true)) {
+				if (!this.mergeItemStack(stackBuffer1, 6, 42, true)) {
 					return ItemStack.EMPTY;
 				}
 				
@@ -113,13 +118,13 @@ public class ContainerOreCrusher extends Container {
 						return ItemStack.EMPTY;
 					}
 				} else if (index >= 3 && index < 30) {
-					if (!this.mergeItemStack(stackBuffer1, 30, 39, false)) {
+					if (!this.mergeItemStack(stackBuffer1, 33, 42, false)) {
 						return ItemStack.EMPTY;
 					}
-				} else if (index >= 30 && index < 39 && !this.mergeItemStack(stackBuffer1, 3, 30, false)) {
+				} else if (index >= 33 && index < 42 && !this.mergeItemStack(stackBuffer1, 6, 33, false)) {
 					return ItemStack.EMPTY;
 				}
-			} else if (!this.mergeItemStack(stackBuffer1, 3, 39, false)) {
+			} else if (!this.mergeItemStack(stackBuffer1, 6, 42, false)) {
 				return ItemStack.EMPTY;
 			}
 			

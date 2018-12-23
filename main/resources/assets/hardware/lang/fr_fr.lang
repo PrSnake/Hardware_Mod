@@ -6,11 +6,25 @@ itemGroup.hardware.tab_hardware_machines=Machines
 itemGroup.hardware.tab_hardware_machines_upgrades=Améliorations
 
 # Blocs de minerai
-tile.hardware.block_ore_cobalt.name=Minerai de Cobalt
-tile.hardware.block_ore_copper.name=Minerai de Cuivre
-tile.hardware.block_ore_vanadium.name=Minerai de Vanadium
-tile.hardware.block_ore_bauxite.name=Minerai de Bauxite
-tile.hardware.block_ore_galena.name=Minerai de GalÃ¨ne
+tile.hardware.block_ore_cobalt_overworld.name=Minerai de Cobalt
+tile.hardware.block_ore_cobalt_nether.name=Minerai de Cobalt du Nether
+tile.hardware.block_ore_cobalt_end.name=Minerai de Cobalt de l'end
+
+tile.hardware.block_ore_copper_overworld.name=Minerai de Cuivre
+tile.hardware.block_ore_copper_nether.name=Minerai de Cuivre du Nether
+tile.hardware.block_ore_copper_end.name=Minerai de Cuivre de l'end
+
+tile.hardware.block_ore_vanadium_overworld.name=Minerai de Vanadium
+tile.hardware.block_ore_vanadium_nether.name=Minerai de Vanadium du Nether
+tile.hardware.block_ore_vanadium_end.name=Minerai de Vanadium de l'end
+
+tile.hardware.block_ore_bauxite_overworld.name=Minerai de Bauxite
+tile.hardware.block_ore_bauxite_nether.name=Minerai de Bauxite du Nether
+tile.hardware.block_ore_bauxite_end.name=Minerai de Bauxite de l'end
+
+tile.hardware.block_ore_galena_overworld.name=Minerai de Galène
+tile.hardware.block_ore_galena_nether.name=Minerai de Galène du Nether
+tile.hardware.block_ore_galena_end.name=Minerai de Galène de l'end
 
 # Minerais brute (items)
 item.hardware.item_raw_copper.name=Minerai de cuivre brut

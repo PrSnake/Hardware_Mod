@@ -17,4 +17,8 @@ public class HardwareCommon {
 	public void registerItemRenderer(Item item, int meta, String id) {
 		
 	}
+	
+	public void registerVariantItemRenderer(Item item, int meta, String filename, String id) {
+		
+	}
 }

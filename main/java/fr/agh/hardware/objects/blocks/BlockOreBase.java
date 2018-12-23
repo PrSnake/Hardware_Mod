@@ -6,52 +6,123 @@ import fr.agh.hardware.ModHardware;
 import fr.agh.hardware.init.BlockInit;
 import fr.agh.hardware.init.CreativeTabInit;
 import fr.agh.hardware.init.ItemInit;
+import fr.agh.hardware.objects.blocks.item.ItemBlockVariants;
 import fr.agh.hardware.util.HardwareReference;
+import fr.agh.hardware.util.handlers.EnumHandler;
 import fr.agh.hardware.util.interfaces.IHasModel;
+import fr.agh.hardware.util.interfaces.IMetaName;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.World;
 
-public class BlockOreBase extends BlockBase implements IHasModel {
-
-	private static final Material MATERIAL = Material.ROCK;
+public class BlockOreBase extends Block implements IHasModel, IMetaName {
+	
+	public static final PropertyEnum<EnumHandler.EnumType> VARIANT = PropertyEnum.<EnumHandler.EnumType>create("variant", EnumHandler.EnumType.class);
+	
+	private String name;
 	private Item loot = null;
 	
-	public BlockOreBase(String name, Item item) {
-		super(name, CreativeTabInit.TAB_MINERALS, MATERIAL,5.0F,3.0F);
+	public BlockOreBase(String name, Item item, float resistance, float hardness) {
+		super(Material.ROCK);
 		
-		loot = item;
+		this.setTranslationKey(HardwareReference.MODID + "." + name);
+		this.setRegistryName(HardwareReference.MODID, name);
+		
+		this.setSoundType(blockSoundType.STONE);
+		
+		this.setResistance(resistance);
+		this.setHardness(hardness);
+		
+		this.setCreativeTab(CreativeTabInit.TAB_MINERALS);
+		
+		this.name = name;
+		this.loot = item;
+		
+		BlockInit.BLOCKS.add(this);
+		ItemInit.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
 	}
 	
 	/**
-     * Get the Item that this Block should drop when harvested.
-     */
+	 * Get the Item that this Block should drop when harvested.
+	 */
+	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return loot;
+		return this.loot;
 	}
 	
 	/**
-     * Get the quantity dropped based on the given fortune level
-     */
-    public int quantityDroppedWithBonus(int fortune, Random random)
-    {
-        return this.quantityDropped(random) + random.nextInt(fortune + 1);
-    }
+	 * Get the quantity dropped based on the given fortune level
+	 */
+	@Override
+	public int quantityDroppedWithBonus(int fortune, Random random)
+	{
+		return this.quantityDropped(random) + random.nextInt(fortune + 1);
+	}
 
-    /**
-     * Returns the quantity of items to drop on block destruction.
-     */
-    public int quantityDropped(Random random)
-    {
-        return 1 + random.nextInt(2);
-    }
+	/**
+	 * Returns the quantity of items to drop on block destruction.
+	 */
+	@Override
+	public int quantityDropped(Random random)
+	{
+		return 1 + random.nextInt(2);
+	}
+
+	@Override
+	public int damageDropped(IBlockState state) {
+		return ((EnumHandler.EnumType)state.getValue(VARIANT)).getMeta();
+	}
+	
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return ((EnumHandler.EnumType)state.getValue(VARIANT)).getMeta();
+	}
+	
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(VARIANT, EnumHandler.EnumType.byMetadata(meta));
+	}
+	
+	@Override
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(world.getBlockState(pos)));
+	}
+	
+	@Override
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+		for (EnumHandler.EnumType variant : EnumHandler.EnumType.values()) {
+			items.add(new ItemStack(this, 1, variant.getMeta()));
+		}
+	}
+	
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] {VARIANT});
+	}
 
 	@Override
 	public void registerModels() {
-		ModHardware.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+		
+		for (int i = 0; i < EnumHandler.EnumType.values().length; i++) {
+			ModHardware.proxy.registerVariantItemRenderer(Item.getItemFromBlock(this), i, this.name + "_" + EnumHandler.EnumType.values()[i].getName(), "inventory");
+		}
+		// ModHardware.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory"); // Without variants
+	}
+
+	@Override
+	public String getSpecialName(ItemStack stack) {
+		return EnumHandler.EnumType.values()[stack.getItemDamage()].getName();
 	}
 
 }

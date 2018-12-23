@@ -1,7 +1,13 @@
 {
    "variants": {
-       "normal": {
-           "model": "hardware:block_ore_bauxite"
-       }
+      "variant=overworld": {
+         "model": "hardware:block_ore_bauxite_overworld"
+      },
+      "variant=nether": {
+         "model": "hardware:block_ore_bauxite_nether"
+      },
+      "variant=end": {
+         "model": "hardware:block_ore_bauxite_end"
+      }
    }
 }

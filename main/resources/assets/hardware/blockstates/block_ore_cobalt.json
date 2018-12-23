@@ -1,7 +1,13 @@
 {
    "variants": {
-       "normal": {
-           "model": "hardware:block_ore_cobalt"
-       }
+      "variant=overworld": {
+         "model": "hardware:block_ore_cobalt_overworld"
+      },
+      "variant=nether": {
+         "model": "hardware:block_ore_cobalt_nether"
+      },
+      "variant=end": {
+         "model": "hardware:block_ore_cobalt_end"
+      }
    }
 }

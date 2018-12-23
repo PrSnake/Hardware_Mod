@@ -6,11 +6,25 @@ itemGroup.hardware.tab_hardware_machines=Machines
 itemGroup.hardware.tab_hardware_machines_upgrades=Upgrades
 
 # Ore blocks
-tile.hardware.block_ore_cobalt.name=Cobalt Ore
-tile.hardware.block_ore_copper.name=Copper Ore
-tile.hardware.block_ore_vanadium.name=Vanadium Ore
-tile.hardware.block_ore_bauxite.name=Bauxite Ore
-tile.hardware.block_ore_galena.name=Galena Ore
+tile.hardware.block_ore_cobalt_overworld.name=Cobalt Ore
+tile.hardware.block_ore_cobalt_nether.name=Cobalt Ore - Nether
+tile.hardware.block_ore_cobalt_end.name=Cobalt Ore - End
+
+tile.hardware.block_ore_copper_overworld.name=Copper Ore
+tile.hardware.block_ore_copper_nether.name=Copper Ore - Nether
+tile.hardware.block_ore_copper_end.name=Copper Ore - End
+
+tile.hardware.block_ore_vanadium_overworld.name=Vanadium Ore
+tile.hardware.block_ore_vanadium_nether.name=Vanadium Ore - Nether
+tile.hardware.block_ore_vanadium_end.name=Vanadium Ore - End
+
+tile.hardware.block_ore_bauxite_overworld.name=Bauxite Ore
+tile.hardware.block_ore_bauxite_nether.name=Bauxite Ore - Nether
+tile.hardware.block_ore_bauxite_end.name=Bauxite Ore - End
+
+tile.hardware.block_ore_galena_overworld.name=Galena Ore
+tile.hardware.block_ore_galena_nether.name=Galena Ore - Nether
+tile.hardware.block_ore_galena_end.name=Galena Ore - End
 
 # Raw ores items
 item.hardware.item_raw_copper.name=Raw copper ore

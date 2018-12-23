@@ -1,7 +1,13 @@
 {
    "variants": {
-       "normal": {
-           "model": "hardware:block_ore_vanadium"
-       }
+      "variant=overworld": {
+         "model": "hardware:block_ore_vanadium_overworld"
+      },
+      "variant=nether": {
+         "model": "hardware:block_ore_vanadium_nether"
+      },
+      "variant=end": {
+         "model": "hardware:block_ore_vanadium_end"
+      }
    }
 }

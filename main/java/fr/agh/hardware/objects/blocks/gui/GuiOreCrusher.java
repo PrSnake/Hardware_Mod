@@ -1,5 +1,7 @@
 package fr.agh.hardware.objects.blocks.gui;
 
+import java.util.ArrayList;
+
 import fr.agh.hardware.objects.blocks.containers.ContainerOreCrusher;
 import fr.agh.hardware.objects.blocks.tileentities.TileEntityOreCrusher;
 import fr.agh.hardware.util.HardwareReference;
@@ -8,8 +10,9 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.event.HoverEvent;
 
-public class GuiOreCrusher extends GuiContainer{
+public class GuiOreCrusher extends GuiContainer {
 
 	private static final ResourceLocation TEXTURES = new ResourceLocation(HardwareReference.MODID + ":textures/gui/container/block_ore_crusher.png");
 	private final InventoryPlayer player;
@@ -28,6 +31,13 @@ public class GuiOreCrusher extends GuiContainer{
 		this.fontRenderer.drawString(tileName, (this.xSize / 2 - this.fontRenderer.getStringWidth(tileName) / 2) + 3, 6, 4210752);
 		// display "inventory" at the left of the GUI
 		this.fontRenderer.drawString(this.player.getDisplayName().getUnformattedText(), 7, this.ySize - 96 + 2, 4210752);
+	}
+	
+	@Override
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+		this.drawDefaultBackground();
+        super.drawScreen(mouseX, mouseY, partialTicks);
+        this.renderHoveredToolTip(mouseX, mouseY);
 	}
 	
 	@Override

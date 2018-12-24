@@ -36,7 +36,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName {
 	public BlockOreBase(String name, Item item, float resistance, float hardness) {
 		super(Material.ROCK);
 		
-		this.setTranslationKey(HardwareReference.MODID + "." + name);
+		this.setUnlocalizedName(HardwareReference.MODID + "." + name);
 		this.setRegistryName(HardwareReference.MODID, name);
 		
 		this.setSoundType(blockSoundType.STONE);

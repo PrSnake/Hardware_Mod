@@ -19,12 +19,6 @@ public class BaseCreativeTab extends CreativeTabs {
 		setBackgroundImageName(image);
 		NAME = label;
 	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public ItemStack createIcon() {
-		return icon.copy();
-	}
 	
 	public void setIcon(ItemStack stack) {
 		icon = stack;
@@ -33,5 +27,11 @@ public class BaseCreativeTab extends CreativeTabs {
 	@Override
 	public boolean hasSearchBar() {
 		return true;
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public ItemStack getTabIconItem() {
+		return icon.copy();
 	}
 }

@@ -156,7 +156,7 @@ public class BlockOreCrusher extends BlockBase {
 	@Override
 	public IBlockState getStateFromMeta(int meta) 
 	{
-		EnumFacing facing = EnumFacing.byIndex(meta);
+		EnumFacing facing = EnumFacing.getFront(meta);
 		if(facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
 		return this.getDefaultState().withProperty(FACING, facing);
 	}

@@ -11,7 +11,7 @@ import net.minecraft.item.Item;
 public class ItemBase extends Item implements IHasModel {
 
 	public ItemBase(String name, CreativeTabs tab) {
-		setTranslationKey(HardwareReference.MODID + "." + name);
+		setUnlocalizedName(HardwareReference.MODID + "." + name);
 		setRegistryName(HardwareReference.MODID, name);
 		setCreativeTab(tab);
 		setMaxStackSize(64);

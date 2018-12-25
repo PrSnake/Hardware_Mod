@@ -3,19 +3,19 @@ package fr.agh.hardware.util.enums;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 
-public enum FuelType {
+public enum UpgradeType {
 	// Type(Name==Translation key)
-	THERMIC("fueltype.hardware.thermic.name"),
-	ELECTRIC("fueltype.hardware.electric.name"),
-	NUCLEAR("fueltype.hardware.nuclear.name");
+	SPEED("upgradetype.hardware.speed.name"),
+	PRODUCTION("upgradetype.hardware.production.name"),
+	FUEL("upgradetype.hardware.fuel.name");
 	
 	private String translationKey = "";
 	
-	FuelType (String translationKey) {
+	UpgradeType (String translationKey) {
 		this.translationKey = translationKey;
 	}
 	
-	public ITextComponent getFuelTypeDisplayName() {
+	public ITextComponent getFuelTypeDisplayName(){
 		return new TextComponentTranslation(this.translationKey);
 	}
 }

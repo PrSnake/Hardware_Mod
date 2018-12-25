@@ -1,7 +1,10 @@
 package fr.agh.hardware.objects.blocks.tileentities;
 
+import fr.agh.hardware.init.ItemInit;
 import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import fr.agh.hardware.objects.blocks.recipes.RecipesOreCrusher;
+import fr.agh.hardware.objects.items.ItemUpgrade;
+import fr.agh.hardware.util.enums.UpgradeType;
 import fr.agh.hardware.util.helper.Fuel;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -128,6 +131,10 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 		
 		if (!this.world.isRemote) {
 			
+			checkForUpgradeInSlot(3);
+			checkForUpgradeInSlot(4);
+			checkForUpgradeInSlot(5);
+			
 			ItemStack fuelSlot = this.getStackInFuelSlot();
 			
 			if (this.isBurning() || !fuelSlot.isEmpty() && !(this.getStackInInputSlot().isEmpty())) {
@@ -186,6 +193,41 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 		}
 	}
 	
+	private void checkForUpgradeInSlot(int slot) {
+		
+		
+		boolean flagUpgrade = false;
+			
+		if () {
+			
+			
+			if (item.getUpgradeType() == UpgradeType.FUEL) {
+				switch (item.getTier) {
+					case 1: this.fuelModifier = 2;
+						break;
+					case 2: this.fuelModifier = 4;
+						break;
+					case 3: this.fuelModifier = 6;
+						break;
+					case 4: this.fuelModifier = 8;
+						break;
+					default: this.fuelModifier = 1;
+						break;
+				}
+			} else if (item.getUpgradeType() == UpgradeType.PRODUCTION) {
+				this.productionModifier = 2;
+			} else if (item.getUpgradeType() == UpgradeType.SPEED) {
+				this.speedModifier = 2;
+			}
+		}
+		
+		if (!flagUpgrade) {
+			this.fuelModifier = 1;
+			this.productionModifier = 0;
+			this.speedModifier = 1;
+		}
+	}
+
 	private void smeltItem() {
 		if (this.canSmelt()) {
 			ItemStack inputStack = this.getStackInInputSlot();
@@ -208,7 +250,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 	}
 
 	private int getCookTime(ItemStack stackInSlot) {
-		return this.totalCookTime;
+		return this.totalCookTime / this.speedModifier;
 	}
 
 	private boolean canSmelt()  {

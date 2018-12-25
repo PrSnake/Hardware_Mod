@@ -3,11 +3,9 @@ package fr.agh.hardware.init;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.agh.hardware.ModHardware;
 import fr.agh.hardware.objects.blocks.BlockOreBase;
 import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 
 public class BlockInit {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();

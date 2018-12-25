@@ -36,8 +36,8 @@ public class RecipesOreCrusher {
 	
 	public ItemStack getOreCrushingResult(ItemStack input) {
 		for(Map.Entry<ItemStack, ItemStack> entry : this.crushingList.entrySet()) {
-			if(this.compareItemStacks(input, (ItemStack)entry.getKey())) {
-				return (ItemStack)entry.getValue();
+			if(this.compareItemStacks(input, entry.getKey())) {
+				return entry.getValue();
 			}
 		}
 		return ItemStack.EMPTY;
@@ -53,8 +53,8 @@ public class RecipesOreCrusher {
 	
 	public float getCrushingExperience(ItemStack stack) {
 		for (Entry<ItemStack, Float> entry : this.experienceList.entrySet()) {
-			if(this.compareItemStacks(stack, (ItemStack)entry.getKey())) {
-				return ((Float)entry.getValue()).floatValue();
+			if(this.compareItemStacks(stack, entry.getKey())) {
+				return (entry.getValue()).floatValue();
 			}
 		}
 		return 0.0F;

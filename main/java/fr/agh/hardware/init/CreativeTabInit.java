@@ -5,7 +5,6 @@ import java.util.List;
 
 import fr.agh.hardware.creativetabs.BaseCreativeTab;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

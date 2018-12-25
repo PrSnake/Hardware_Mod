@@ -8,7 +8,7 @@ import fr.agh.hardware.init.CreativeTabInit;
 import fr.agh.hardware.init.ItemInit;
 import fr.agh.hardware.objects.blocks.item.ItemBlockVariants;
 import fr.agh.hardware.util.HardwareReference;
-import fr.agh.hardware.util.handlers.EnumHandler;
+import fr.agh.hardware.util.enums.MetaDimension;
 import fr.agh.hardware.util.interfaces.IHasModel;
 import fr.agh.hardware.util.interfaces.IMetaName;
 import net.minecraft.block.Block;
@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 
 public class BlockOreBase extends Block implements IHasModel, IMetaName {
 	
-	public static final PropertyEnum<EnumHandler.EnumType> VARIANT = PropertyEnum.<EnumHandler.EnumType>create("variant", EnumHandler.EnumType.class);
+	public static final PropertyEnum<MetaDimension> VARIANT = PropertyEnum.<MetaDimension>create("variant", MetaDimension.class);
 	
 	private String name;
 	private Item loot = null;
@@ -81,17 +81,17 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName {
 
 	@Override
 	public int damageDropped(IBlockState state) {
-		return ((EnumHandler.EnumType)state.getValue(VARIANT)).getMeta();
+		return ((MetaDimension)state.getValue(VARIANT)).getMeta();
 	}
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return ((EnumHandler.EnumType)state.getValue(VARIANT)).getMeta();
+		return ((MetaDimension)state.getValue(VARIANT)).getMeta();
 	}
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(VARIANT, EnumHandler.EnumType.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, MetaDimension.byMetadata(meta));
 	}
 	
 	@Override
@@ -101,7 +101,7 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName {
 	
 	@Override
 	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
-		for (EnumHandler.EnumType variant : EnumHandler.EnumType.values()) {
+		for (MetaDimension variant : MetaDimension.values()) {
 			items.add(new ItemStack(this, 1, variant.getMeta()));
 		}
 	}
@@ -114,15 +114,15 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName {
 	@Override
 	public void registerModels() {
 		
-		for (int i = 0; i < EnumHandler.EnumType.values().length; i++) {
-			ModHardware.proxy.registerVariantItemRenderer(Item.getItemFromBlock(this), i, this.name + "_" + EnumHandler.EnumType.values()[i].getName(), "inventory");
+		for (int i = 0; i < MetaDimension.values().length; i++) {
+			ModHardware.proxy.registerVariantItemRenderer(Item.getItemFromBlock(this), i, this.name + "_" + MetaDimension.values()[i].getName(), "inventory");
 		}
 		// ModHardware.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory"); // Without variants
 	}
 
 	@Override
 	public String getSpecialName(ItemStack stack) {
-		return EnumHandler.EnumType.values()[stack.getItemDamage()].getName();
+		return MetaDimension.values()[stack.getItemDamage()].getName();
 	}
 
 }

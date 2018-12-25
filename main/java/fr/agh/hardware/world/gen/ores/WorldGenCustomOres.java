@@ -4,7 +4,7 @@ import java.util.Random;
 
 import fr.agh.hardware.init.BlockInit;
 import fr.agh.hardware.objects.blocks.BlockOreBase;
-import fr.agh.hardware.util.handlers.EnumHandler;
+import fr.agh.hardware.util.enums.MetaDimension;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -38,25 +38,25 @@ public class WorldGenCustomOres implements IWorldGenerator {
 	
 	
 	public WorldGenCustomOres() {
-		ore_overworld_copper = new WorldGenMinable(BlockInit.ORE_COPPER.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
-		ore_nether_copper = new WorldGenMinable(BlockInit.ORE_COPPER.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
-		ore_end_copper = new WorldGenMinable(BlockInit.ORE_COPPER.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
+		ore_overworld_copper = new WorldGenMinable(BlockInit.ORE_COPPER.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
+		ore_nether_copper = new WorldGenMinable(BlockInit.ORE_COPPER.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		ore_end_copper = new WorldGenMinable(BlockInit.ORE_COPPER.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
 		
-		ore_overworld_cobalt = new WorldGenMinable(BlockInit.ORE_COBALT.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
-		ore_nether_cobalt = new WorldGenMinable(BlockInit.ORE_COBALT.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
-		ore_end_cobalt = new WorldGenMinable(BlockInit.ORE_COBALT.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
+		ore_overworld_cobalt = new WorldGenMinable(BlockInit.ORE_COBALT.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
+		ore_nether_cobalt = new WorldGenMinable(BlockInit.ORE_COBALT.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		ore_end_cobalt = new WorldGenMinable(BlockInit.ORE_COBALT.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
 		
-		ore_overworld_vanadium = new WorldGenMinable(BlockInit.ORE_VANADIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
-		ore_nether_vanadium = new WorldGenMinable(BlockInit.ORE_VANADIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
-		ore_end_vanadium = new WorldGenMinable(BlockInit.ORE_VANADIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
+		ore_overworld_vanadium = new WorldGenMinable(BlockInit.ORE_VANADIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
+		ore_nether_vanadium = new WorldGenMinable(BlockInit.ORE_VANADIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		ore_end_vanadium = new WorldGenMinable(BlockInit.ORE_VANADIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
 		
-		ore_overworld_bauxite = new WorldGenMinable(BlockInit.ORE_BAUXITE.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
-		ore_nether_bauxite = new WorldGenMinable(BlockInit.ORE_BAUXITE.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
-		ore_end_bauxite = new WorldGenMinable(BlockInit.ORE_BAUXITE.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
+		ore_overworld_bauxite = new WorldGenMinable(BlockInit.ORE_BAUXITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
+		ore_nether_bauxite = new WorldGenMinable(BlockInit.ORE_BAUXITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		ore_end_bauxite = new WorldGenMinable(BlockInit.ORE_BAUXITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
 		
-		ore_overworld_galena = new WorldGenMinable(BlockInit.ORE_GALENA.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
-		ore_nether_galena = new WorldGenMinable(BlockInit.ORE_GALENA.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
-		ore_end_galena = new WorldGenMinable(BlockInit.ORE_GALENA.getDefaultState().withProperty(BlockOreBase.VARIANT, EnumHandler.EnumType.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
+		ore_overworld_galena = new WorldGenMinable(BlockInit.ORE_GALENA.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
+		ore_nether_galena = new WorldGenMinable(BlockInit.ORE_GALENA.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		ore_end_galena = new WorldGenMinable(BlockInit.ORE_GALENA.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
 		
 	}
 	

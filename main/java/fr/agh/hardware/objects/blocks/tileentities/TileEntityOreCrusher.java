@@ -2,8 +2,8 @@ package fr.agh.hardware.objects.blocks.tileentities;
 
 import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import fr.agh.hardware.objects.blocks.recipes.RecipesOreCrusher;
+import fr.agh.hardware.util.enums.FuelType;
 import fr.agh.hardware.util.helper.Fuel;
-import fr.agh.hardware.util.helper.FuelType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;

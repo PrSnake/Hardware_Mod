@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import fr.agh.hardware.util.enums.FuelType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -27,7 +28,7 @@ public class Fuel {
 		
 		// Add all fuel from this page https://minecraft.gamepedia.com/Smelting#Fuel
 		
-		// commented ones are for future version of minecraft
+		// commented ones are for future version of minecraft (1.13)
 		// this.addFuel(Item.getItemFromBlock(Blocks.DRIEDKELP), ticks, FuelType.THERMIC);
 		// this.addFuel(Item.getItemFromBlock(Blocks.BAMBOO), ticks, FuelType.THERMIC);
 		// this.addFuel(Item.getItemFromBlock(Blocks.SCAFFOLDING), ticks, FuelType.THERMIC);

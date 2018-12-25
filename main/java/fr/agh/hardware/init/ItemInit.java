@@ -3,7 +3,6 @@ package fr.agh.hardware.init;
 import java.util.List;
 
 import fr.agh.hardware.objects.items.ItemBase;
-import fr.agh.hardware.ModHardware;
 
 import java.util.ArrayList;
 import net.minecraft.item.Item;

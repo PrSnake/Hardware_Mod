@@ -106,6 +106,14 @@ public class Fuel {
 		return false;
 	}
 	
+	/**return if the said item has the same fuel type
+	 * than the fuel type in parameter (usually the
+	 * fuel type of the machine)
+	 * @author Lionel
+	 * @param item item in the fuel slot
+	 * @param type Fuel type of the machine
+	 * @return boolean true if fuel is compatible else false
+	 */
 	public boolean isFuelCompatible(Item item, FuelType type) {
 		
 		if(this.isItemFuel(item) && type.equals(this.getFuelType(item))) {
@@ -126,9 +134,9 @@ public class Fuel {
 	public int getItemBurnTime(Item item) {
 		if (this.isItemFuel(item)) {
 			return this.itemBurnTime.get(item);
-		} else {
-			return 0;
 		}
+		
+		return 0;
 	}
 	
 	public void setItemBurnTime(Item item, int ticks) {

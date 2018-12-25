@@ -2,7 +2,6 @@ package fr.agh.hardware.objects.blocks.tileentities;
 
 import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import fr.agh.hardware.objects.blocks.recipes.RecipesOreCrusher;
-import fr.agh.hardware.util.enums.FuelType;
 import fr.agh.hardware.util.helper.Fuel;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -27,8 +26,8 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 
 	private ItemStackHandler handler = new ItemStackHandler(6);
 	private String customName;
-	private ItemStack smelting = ItemStack.EMPTY;
-	private FuelType fuelType = FuelType.THERMIC;
+	//private ItemStack smelting = ItemStack.EMPTY;
+	//private FuelType fuelType = FuelType.THERMIC;
 	
 	/** The number of ticks that the furnace will keep burning */
 	private int burnTime;
@@ -37,16 +36,18 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 	private int cookTime;
 	private int totalCookTime = 200;
 	
-	private int fuelModifier;
-	private int speedModifier;
-	private int productionModifier;
+	
+	// TODO implements upgrade system
+	private int fuelModifier = 1;
+	private int speedModifier = 1;
+	private int productionModifier = 0; // Add
 	
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
 		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
 			return true;
 		}
-		else return false;
+		return false;
 	}
 	
 	@Override
@@ -77,7 +78,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 		this.burnTime = compound.getInteger("BurnTime");
 		this.cookTime = compound.getInteger("CookTime");
 		this.totalCookTime = compound.getInteger("CookTimeTotal");
-		this.currentBurnTime = getItemBurnTime((ItemStack)this.handler.getStackInSlot(1));
+		this.currentBurnTime = getItemBurnTime(this.handler.getStackInSlot(1));
 		
 		if(compound.hasKey("CustomName", 8)) this.setCustomName(compound.getString("CustomName"));
 	}
@@ -150,7 +151,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 								 *  Thus, buckets are milk buckets' container item.
 								 *  (If there isn't a container item, then Itemstack.empty is returned) 
 								 */
-								this.setStackInFuelSlot((ItemStack)itemFuelSlot.getContainerItem(fuelSlot));
+								this.setStackInFuelSlot(itemFuelSlot.getContainerItem(fuelSlot));
 							}
 						}
 					}
@@ -193,9 +194,9 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 			
 			if (outputStack.isEmpty()) {
 				this.setStackInOutputSlot(resultStack.copy());
-				this.getStackInOutputSlot().grow(1);
+				this.getStackInOutputSlot().grow(1 + this.productionModifier);
 			} else if (outputStack.getItem() == resultStack.getItem()) {
-				outputStack.grow(2); // TODO use a variable if we want to implement upgrade system
+				outputStack.grow(2 + this.productionModifier); // TODO use a variable if we want to implement upgrade system
 				// outputStack.grow(resultStack.getCount()); // If we deal with results upgrade in RecipesOreCrusher use this instead
 			}
 			inputStack.shrink(1);
@@ -213,23 +214,25 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 	private boolean canSmelt()  {
 		if (this.getStackInInputSlot().isEmpty()) {
 			return false;
+		}
+		
+		ItemStack resultStack = RecipesOreCrusher.getInstance().getOreCrushingResult(getStackInInputSlot());
+		
+		if (resultStack.isEmpty()) {
+			return false;
+		}
+		
+		ItemStack outputStack = this.getStackInOutputSlot();
+		
+		// TODO set an offset where getCount is used because resultStack is always a stack of 1 Item (it's used to facilitate ore crusher upgrade system where it will only edit offset and multipliers)
+		if (outputStack.isEmpty()) {
+			return true;
+		} else if (outputStack.getItem() != resultStack.getItem()) {
+			return false;
+		} else if ((outputStack.getCount() + 2) <= this.getInventoryStackSizeLimit() && (outputStack.getCount() + 2) <= outputStack.getMaxStackSize()) {
+			return true;
 		} else {
-			ItemStack resultStack = RecipesOreCrusher.getInstance().getOreCrushingResult(getStackInInputSlot());
-			if (resultStack.isEmpty()) {
-				return false;
-			} else {
-				ItemStack outputStack = this.getStackInOutputSlot();
-				// TODO set an offset where getCount is used because resultStack is always a stack of 1 Item (it's used to facilitate ore crusher upgrade system where it will only edit offset and multipliers)
-				if (outputStack.isEmpty()) {
-					return true;
-				} else if (outputStack.getItem() != resultStack.getItem()) {
-					return false;
-				} else if ((outputStack.getCount() + 2) <= this.getInventoryStackSizeLimit() && (outputStack.getCount() + 2) <= outputStack.getMaxStackSize()) {
-					return true;
-				} else {
-					return outputStack.getCount() + 2 <= resultStack.getMaxStackSize();
-				}
-			}
+			return outputStack.getCount() + 2 <= resultStack.getMaxStackSize();
 		}
 	}
 	
@@ -241,11 +244,12 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 	public static int getItemBurnTime(ItemStack fuel) {
 		if(fuel.isEmpty()) {
 			return 0;
-		} else {
-			return Fuel.getInstance().getItemBurnTime(fuel.getItem());
 		}
+		
+		return Fuel.getInstance().getItemBurnTime(fuel.getItem());
 	}
 	
+	@SuppressWarnings("cast") // TODO check if java cast to float when adding int to float
 	public boolean isUsableByPlayer(EntityPlayer player) {
 		return this.world.getTileEntity(this.pos) != this ? false : player.getDistanceSq((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D;
 	}

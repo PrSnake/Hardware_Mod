@@ -3,13 +3,11 @@ package fr.agh.hardware.util.helper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import fr.agh.hardware.util.enums.FuelType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 public class Fuel {
 

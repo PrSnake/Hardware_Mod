@@ -81,12 +81,12 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName {
 
 	@Override
 	public int damageDropped(IBlockState state) {
-		return ((MetaDimension)state.getValue(VARIANT)).getMeta();
+		return (state.getValue(VARIANT)).getMeta();
 	}
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return ((MetaDimension)state.getValue(VARIANT)).getMeta();
+		return (state.getValue(VARIANT)).getMeta();
 	}
 	
 	@Override

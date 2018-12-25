@@ -3,9 +3,7 @@ package fr.agh.hardware.objects.blocks.recipes;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Maps;
-import com.google.common.collect.Table;
 
 import fr.agh.hardware.init.BlockInit;
 import fr.agh.hardware.init.ItemInit;

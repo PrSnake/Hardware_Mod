@@ -4,7 +4,6 @@ import fr.agh.hardware.init.ItemInit;
 import fr.agh.hardware.util.HardwareReference;
 import fr.agh.hardware.util.interfaces.IHasModel;
 import fr.agh.hardware.ModHardware;
-import fr.agh.hardware.proxy.HardwareClient;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 

@@ -4,7 +4,6 @@ import java.util.Random;
 
 import fr.agh.hardware.ModHardware;
 import fr.agh.hardware.init.BlockInit;
-import fr.agh.hardware.init.ItemInit;
 import fr.agh.hardware.objects.blocks.tileentities.TileEntityOreCrusher;
 import fr.agh.hardware.util.HardwareReference;
 import net.minecraft.block.BlockHorizontal;
@@ -20,10 +19,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;

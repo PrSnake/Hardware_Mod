@@ -1,16 +1,12 @@
 package fr.agh.hardware.objects.blocks.gui;
 
-import java.util.ArrayList;
-
 import fr.agh.hardware.objects.blocks.containers.ContainerOreCrusher;
 import fr.agh.hardware.objects.blocks.tileentities.TileEntityOreCrusher;
 import fr.agh.hardware.util.HardwareReference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.event.HoverEvent;
 
 public class GuiOreCrusher extends GuiContainer {
 

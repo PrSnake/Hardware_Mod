@@ -1,10 +1,7 @@
 package fr.agh.hardware.creativetabs;
 
-import fr.agh.hardware.init.BlockInit;
 import fr.agh.hardware.util.HardwareReference;
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

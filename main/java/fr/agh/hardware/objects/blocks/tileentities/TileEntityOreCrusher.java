@@ -238,9 +238,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 		return Fuel.getInstance().getItemBurnTime(fuel.getItem());
 	}
 	
-	//@SuppressWarnings("cast") // TODO check if java cast to float when adding int to float
 	public boolean isUsableByPlayer(EntityPlayer player) {
-		//return this.world.getTileEntity(this.pos) != this ? false : player.getDistanceSq((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D;
 		return this.world.getTileEntity(this.pos) != this ? false : player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64.0D;
 	}
 	

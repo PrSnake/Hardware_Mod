@@ -5,7 +5,7 @@ import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import fr.agh.hardware.objects.blocks.recipes.RecipesOreCrusher;
 import fr.agh.hardware.objects.items.ItemUpgrade;
 import fr.agh.hardware.util.enums.UpgradeType;
-import fr.agh.hardware.util.helper.Fuel;
+import fr.agh.hardware.util.helper.Fuel1;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -38,12 +38,6 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 	private int currentBurnTime;
 	private int cookTime;
 	private int totalCookTime = 200;
-	
-	
-	// TODO implements upgrade system
-	private int fuelModifier = 1;
-	private int speedModifier = 1;
-	private int productionModifier = 0; // Add
 	
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
@@ -123,17 +117,11 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 		boolean flagIsBurning = this.isBurning(); 
 		boolean flagIsDirty = false;
 		
-		this.checkUpgrades();
-		
 		if (this.isBurning()) {
 			--this.burnTime;
 		}
 		
 		if (!this.world.isRemote) {
-			
-			checkForUpgradeInSlot(3);
-			checkForUpgradeInSlot(4);
-			checkForUpgradeInSlot(5);
 			
 			ItemStack fuelSlot = this.getStackInFuelSlot();
 			
@@ -192,41 +180,6 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 			this.markDirty();
 		}
 	}
-	
-	private void checkForUpgradeInSlot(int slot) {
-		
-		
-		boolean flagUpgrade = false;
-			
-		if () {
-			
-			
-			if (item.getUpgradeType() == UpgradeType.FUEL) {
-				switch (item.getTier) {
-					case 1: this.fuelModifier = 2;
-						break;
-					case 2: this.fuelModifier = 4;
-						break;
-					case 3: this.fuelModifier = 6;
-						break;
-					case 4: this.fuelModifier = 8;
-						break;
-					default: this.fuelModifier = 1;
-						break;
-				}
-			} else if (item.getUpgradeType() == UpgradeType.PRODUCTION) {
-				this.productionModifier = 2;
-			} else if (item.getUpgradeType() == UpgradeType.SPEED) {
-				this.speedModifier = 2;
-			}
-		}
-		
-		if (!flagUpgrade) {
-			this.fuelModifier = 1;
-			this.productionModifier = 0;
-			this.speedModifier = 1;
-		}
-	}
 
 	private void smeltItem() {
 		if (this.canSmelt()) {
@@ -236,21 +189,17 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 			
 			if (outputStack.isEmpty()) {
 				this.setStackInOutputSlot(resultStack.copy());
-				this.getStackInOutputSlot().grow(1 + this.productionModifier);
+				this.getStackInOutputSlot().grow(1);
 			} else if (outputStack.getItem() == resultStack.getItem()) {
-				outputStack.grow(2 + this.productionModifier); // TODO use a variable if we want to implement upgrade system
+				outputStack.grow(2); // TODO use a variable if we want to implement upgrade system
 				// outputStack.grow(resultStack.getCount()); // If we deal with results upgrade in RecipesOreCrusher use this instead
 			}
 			inputStack.shrink(1);
 		}
 	}
-	
-	private void checkUpgrades() {
-		
-	}
 
 	private int getCookTime(ItemStack stackInSlot) {
-		return this.totalCookTime / this.speedModifier;
+		return this.totalCookTime;
 	}
 
 	private boolean canSmelt()  {
@@ -288,7 +237,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 			return 0;
 		}
 		
-		return Fuel.getInstance().getItemBurnTime(fuel.getItem());
+		return Fuel1.getInstance().getItemBurnTime(fuel.getItem());
 	}
 	
 	@SuppressWarnings("cast") // TODO check if java cast to float when adding int to float

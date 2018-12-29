@@ -3,8 +3,6 @@ package fr.agh.hardware.objects.blocks.tileentities;
 import fr.agh.hardware.init.ItemInit;
 import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import fr.agh.hardware.objects.blocks.recipes.RecipesOreCrusher;
-import fr.agh.hardware.objects.items.ItemUpgrade;
-import fr.agh.hardware.util.enums.UpgradeType;
 import fr.agh.hardware.util.helper.Fuel;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

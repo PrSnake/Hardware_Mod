@@ -2,7 +2,7 @@ package fr.agh.hardware.objects.blocks.containers;
 
 import fr.agh.hardware.objects.blocks.recipes.RecipesOreCrusher;
 import fr.agh.hardware.objects.blocks.tileentities.TileEntityOreCrusher;
-import fr.agh.hardware.util.helper.Fuel1;
+import fr.agh.hardware.util.helper.Fuel;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -113,7 +113,7 @@ public class ContainerOreCrusher extends Container {
 					if (!this.mergeItemStack(stackBuffer1, 0, 1, false)) {
 						return ItemStack.EMPTY;
 					}
-				} else if (Fuel1.getInstance().isItemFuel(stackBuffer1.getItem())) {
+				} else if (Fuel.getInstance().isItemFuel(stackBuffer1.getItem())) {
 					if (!this.mergeItemStack(stackBuffer1, 1, 2, false)) {
 						return ItemStack.EMPTY;
 					}

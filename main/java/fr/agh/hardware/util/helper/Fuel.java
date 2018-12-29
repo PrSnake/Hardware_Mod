@@ -9,20 +9,20 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
-public class Fuel1 {
+public class Fuel {
 
-	private static final Fuel1 INSTANCE = new Fuel1();
+	private static final Fuel INSTANCE = new Fuel();
 	
 	private final ArrayList<Item> fuelList = new ArrayList<Item>();
 	
 	private final Map<Item, Integer> itemBurnTime = new HashMap<Item, Integer>();
 	private final Map<Item, FuelType> itemFuelType = new HashMap<Item, FuelType>();
 	
-	public static Fuel1 getInstance() {
+	public static Fuel getInstance() {
 		return INSTANCE;
 	}
 	
-	private Fuel1() {
+	private Fuel() {
 		
 		// Add all fuel from this page https://minecraft.gamepedia.com/Smelting#Fuel
 		

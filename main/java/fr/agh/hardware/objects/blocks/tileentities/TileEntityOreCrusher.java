@@ -5,7 +5,7 @@ import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import fr.agh.hardware.objects.blocks.recipes.RecipesOreCrusher;
 import fr.agh.hardware.objects.items.ItemUpgrade;
 import fr.agh.hardware.util.enums.UpgradeType;
-import fr.agh.hardware.util.helper.Fuel1;
+import fr.agh.hardware.util.helper.Fuel;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -237,7 +237,7 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 			return 0;
 		}
 		
-		return Fuel1.getInstance().getItemBurnTime(fuel.getItem());
+		return Fuel.getInstance().getItemBurnTime(fuel.getItem());
 	}
 	
 	@SuppressWarnings("cast") // TODO check if java cast to float when adding int to float

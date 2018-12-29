@@ -26,12 +26,17 @@ tile.hardware.block_ore_galena_overworld.name=Minerai de Galène
 tile.hardware.block_ore_galena_nether.name=Minerai de Galène du Nether
 tile.hardware.block_ore_galena_end.name=Minerai de Galène de l'end
 
+tile.hardware.block_ore_rutile_overworld.name=Minerai de Rutile
+tile.hardware.block_ore_rutile_nether.name=Minerai de Rutile du Nether
+tile.hardware.block_ore_rutile_end.name=Minerai de Rutile de l'end
+
 # Minerais brute (items)
 item.hardware.item_raw_copper.name=Minerai de cuivre brut
 item.hardware.item_raw_cobalt.name=Minerai de cobalt brut
 item.hardware.item_raw_vanadium.name=Minerai de vanadium brut
 item.hardware.item_raw_bauxite.name=Minerai de bauxite brut
 item.hardware.item_raw_galena.name=Minerai de galÃ¨ne brut
+item.hardware.item_raw_rutile.name=Minerai de rutile
 
 # Lingots (items)
 item.hardware.item_ingot_copper.name=Lingot de Cuivre

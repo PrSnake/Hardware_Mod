@@ -18,6 +18,7 @@ public class ItemInit {
 	public static final Item RAW_BAUXITE = new ItemBase("item_raw_bauxite", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_GALENA = new ItemBase("item_raw_galena", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_VANADIUM = new ItemBase("item_raw_vanadium", CreativeTabInit.TAB_MINERALS);
+	public static final Item RAW_RUTILE = new ItemBase("item_raw_rutile", CreativeTabInit.TAB_MINERALS);
 	
 	// Lingots
 	// public static final Item INGOT_ = new ItemBase("item_ingot_", CreativeTabInit.TAB_MINERALS);

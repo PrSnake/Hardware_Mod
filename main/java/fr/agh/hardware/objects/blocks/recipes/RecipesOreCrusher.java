@@ -25,6 +25,7 @@ public class RecipesOreCrusher {
 		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_COPPER), new ItemStack(ItemInit.RAW_COPPER), 5.0F);
 		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_GALENA), new ItemStack(ItemInit.RAW_GALENA), 5.0F);
 		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_VANADIUM), new ItemStack(ItemInit.RAW_VANADIUM), 5.0F);
+		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_RUTILE), new ItemStack(ItemInit.RAW_RUTILE), 5.0F);
 	}
 
 	

@@ -31,20 +31,20 @@ public class ContainerOreCrusher extends Container {
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 56, 17));	// input
 		this.addSlotToContainer(new SlotItemHandler(handler, 1, 56, 53));	// fuel
 		this.addSlotToContainer(new SlotItemHandler(handler, 2, 116, 35));	// output
-		this.addSlotToContainer(new SlotItemHandler(handler, 3, 9, 9));// Upgrade slot 1
-		this.addSlotToContainer(new SlotItemHandler(handler, 4, 9, 32));// Upgrade slot 2
-		this.addSlotToContainer(new SlotItemHandler(handler, 5, 9, 55));// Upgrade slot 3
+		this.addSlotToContainer(new SlotItemHandler(handler, 3, 9, 9));		// Upgrade slot 1
+		this.addSlotToContainer(new SlotItemHandler(handler, 4, 9, 32));	// Upgrade slot 2
+		this.addSlotToContainer(new SlotItemHandler(handler, 5, 9, 55));	// Upgrade slot 3
 		
 		// player inventory
-		for(int y = 0; y < 3; y++) {
-			for(int x = 0; x < 9; x++) {
-				this.addSlotToContainer(new Slot(player, x + y*9 + 9, 8 + x*18, 84 + y*18));
+		for(int line = 0; line < 3; line++) {
+			for(int column = 0; column < 9; column++) {
+				this.addSlotToContainer(new Slot(player, column + line*9 + 9, 8 + column*18, 84 + line*18));
 			}
 		}
 		
 		// player toolbar
-		for(int x = 0; x < 9; x++) {
-			this.addSlotToContainer(new Slot(player, x, 8 + x * 18, 142));
+		for(int column = 0; column < 9; column++) {
+			this.addSlotToContainer(new Slot(player, column, 8 + column * 18, 142));
 		}
 	}
 	

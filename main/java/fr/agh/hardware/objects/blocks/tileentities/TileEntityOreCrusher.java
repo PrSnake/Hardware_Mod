@@ -1,6 +1,5 @@
 package fr.agh.hardware.objects.blocks.tileentities;
 
-import fr.agh.hardware.init.ItemInit;
 import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import fr.agh.hardware.objects.blocks.recipes.RecipesOreCrusher;
 import fr.agh.hardware.util.helper.Fuel;

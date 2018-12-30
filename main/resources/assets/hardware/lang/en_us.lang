@@ -6,9 +6,9 @@ itemGroup.hardware.tab_hardware_machines=Machines
 itemGroup.hardware.tab_hardware_machines_upgrades=Upgrades
 
 # Ore blocks
-tile.hardware.block_ore_cobalt_overworld.name=Cobalt Ore
-tile.hardware.block_ore_cobalt_nether.name=Cobalt Ore - Nether
-tile.hardware.block_ore_cobalt_end.name=Cobalt Ore - End
+tile.hardware.block_ore_cobaltite_overworld.name=Cobaltite Ore
+tile.hardware.block_ore_cobaltite_nether.name=Cobaltite Ore - Nether
+tile.hardware.block_ore_cobaltite_end.name=Cobaltite Ore - End
 
 tile.hardware.block_ore_copper_overworld.name=Copper Ore
 tile.hardware.block_ore_copper_nether.name=Copper Ore - Nether
@@ -39,12 +39,12 @@ tile.hardware.block_ore_scheelite_nether.name=Scheelite Ore - Nether
 tile.hardware.block_ore_scheelite_end.name=Scheelite Ore - End
 
 # Raw ores items
-item.hardware.item_raw_copper.name=Raw copper ore
-item.hardware.item_raw_cobalt.name=Raw cobalt ore
-item.hardware.item_raw_vanadium.name=Raw vanadium ore
-item.hardware.item_raw_bauxite.name=Raw bauxite ore
-item.hardware.item_raw_galena.name=Raw galena ore
-item.hardware.item_raw_rutile.name=Raw rutile ore
+item.hardware.item_raw_copper.name=Raw Copper ore
+item.hardware.item_raw_cobaltite.name=Raw Cobalt ore
+item.hardware.item_raw_vanadium.name=Raw Vanadium ore
+item.hardware.item_raw_bauxite.name=Raw Bauxite ore
+item.hardware.item_raw_galena.name=Raw Galena ore
+item.hardware.item_raw_rutile.name=Raw Rutile ore
 item.hardware.item_raw_wolframite.name=Raw Wolframite ore
 item.hardware.item_raw_scheelite.name=Raw Scheelite ore
 

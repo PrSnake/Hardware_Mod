@@ -14,7 +14,7 @@ public class ItemInit {
 	// Minerai brut
 	// public static final Item RAW_ = new ItemBase("item_raw_", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_COPPER = new ItemBase("item_raw_copper", CreativeTabInit.TAB_MINERALS);
-	public static final Item RAW_COBALT = new ItemBase("item_raw_cobalt", CreativeTabInit.TAB_MINERALS);
+	public static final Item RAW_COBALTITE = new ItemBase("item_raw_cobaltite", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_BAUXITE = new ItemBase("item_raw_bauxite", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_GALENA = new ItemBase("item_raw_galena", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_VANADIUM = new ItemBase("item_raw_vanadium", CreativeTabInit.TAB_MINERALS);

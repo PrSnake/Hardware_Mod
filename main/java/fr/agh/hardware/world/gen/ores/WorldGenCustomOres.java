@@ -53,9 +53,9 @@ public class WorldGenCustomOres implements IWorldGenerator {
 		ore_nether_copper = new WorldGenMinable(BlockInit.ORE_COPPER.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
 		ore_end_copper = new WorldGenMinable(BlockInit.ORE_COPPER.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
 		
-		ore_overworld_cobalt = new WorldGenMinable(BlockInit.ORE_COBALT.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
-		ore_nether_cobalt = new WorldGenMinable(BlockInit.ORE_COBALT.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
-		ore_end_cobalt = new WorldGenMinable(BlockInit.ORE_COBALT.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
+		ore_overworld_cobalt = new WorldGenMinable(BlockInit.ORE_COBALTITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
+		ore_nether_cobalt = new WorldGenMinable(BlockInit.ORE_COBALTITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		ore_end_cobalt = new WorldGenMinable(BlockInit.ORE_COBALTITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
 		
 		ore_overworld_vanadium = new WorldGenMinable(BlockInit.ORE_VANADIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
 		ore_nether_vanadium = new WorldGenMinable(BlockInit.ORE_VANADIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));

@@ -34,7 +34,7 @@ public class BlockInit {
 	 * Nickel
 	 */
 	
-	public static final Block ORE_COBALT = new BlockOreBase("block_ore_cobalt", ItemInit.RAW_COBALT, 15.0F, 3.0F);
+	public static final Block ORE_COBALTITE = new BlockOreBase("block_ore_cobaltite", ItemInit.RAW_COBALTITE, 15.0F, 3.0F);
 	public static final Block ORE_COPPER = new BlockOreBase("block_ore_copper", ItemInit.RAW_COPPER, 15.0F, 3.0F);
 	public static final Block ORE_BAUXITE = new BlockOreBase("block_ore_bauxite", ItemInit.RAW_BAUXITE, 15.0F, 3.0F);
 	public static final Block ORE_GALENA = new BlockOreBase("block_ore_galena", ItemInit.RAW_GALENA, 15.0F, 3.0F);

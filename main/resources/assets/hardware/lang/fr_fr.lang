@@ -6,9 +6,9 @@ itemGroup.hardware.tab_hardware_machines=Machines
 itemGroup.hardware.tab_hardware_machines_upgrades=Améliorations
 
 # Blocs de minerai
-tile.hardware.block_ore_cobalt_overworld.name=Minerai de Cobalt
-tile.hardware.block_ore_cobalt_nether.name=Minerai de Cobalt du Nether
-tile.hardware.block_ore_cobalt_end.name=Minerai de Cobalt de l'end
+tile.hardware.block_ore_cobaltite_overworld.name=Minerai de Cobaltite
+tile.hardware.block_ore_cobaltite_nether.name=Minerai de Cobaltite du Nether
+tile.hardware.block_ore_cobaltite_end.name=Minerai de Cobaltite de l'end
 
 tile.hardware.block_ore_copper_overworld.name=Minerai de Cuivre
 tile.hardware.block_ore_copper_nether.name=Minerai de Cuivre du Nether
@@ -40,7 +40,7 @@ tile.hardware.block_ore_scheelite_end.name=Minerai de Scheelite de l'end
 
 # Minerais brute (items)
 item.hardware.item_raw_copper.name=Minerai de cuivre brut
-item.hardware.item_raw_cobalt.name=Minerai de cobalt brut
+item.hardware.item_raw_cobaltite.name=Minerai de cobalt brut
 item.hardware.item_raw_vanadium.name=Minerai de vanadium brut
 item.hardware.item_raw_bauxite.name=Minerai de bauxite brut
 item.hardware.item_raw_galena.name=Minerai de galène brut

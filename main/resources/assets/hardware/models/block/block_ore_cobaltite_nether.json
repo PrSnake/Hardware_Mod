@@ -1,0 +1,6 @@
+{
+   "parent": "block/cube_all",
+   "textures": {
+       "all": "hardware:blocks/block_ore_cobaltite_nether"
+   }
+}

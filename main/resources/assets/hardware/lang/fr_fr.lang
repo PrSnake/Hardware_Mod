@@ -30,13 +30,23 @@ tile.hardware.block_ore_rutile_overworld.name=Minerai de Rutile
 tile.hardware.block_ore_rutile_nether.name=Minerai de Rutile du Nether
 tile.hardware.block_ore_rutile_end.name=Minerai de Rutile de l'end
 
+tile.hardware.block_ore_wolframite_overworld.name=Minerai de Wolframite
+tile.hardware.block_ore_wolframite_nether.name=Minerai de Wolframite du Nether
+tile.hardware.block_ore_wolframite_end.name=Minerai de Wolframite de l'end
+
+tile.hardware.block_ore_scheelite_overworld.name=Minerai de Scheelite
+tile.hardware.block_ore_scheelite_nether.name=Minerai de Scheelite du Nether
+tile.hardware.block_ore_scheelite_end.name=Minerai de Scheelite de l'end
+
 # Minerais brute (items)
 item.hardware.item_raw_copper.name=Minerai de cuivre brut
 item.hardware.item_raw_cobalt.name=Minerai de cobalt brut
 item.hardware.item_raw_vanadium.name=Minerai de vanadium brut
 item.hardware.item_raw_bauxite.name=Minerai de bauxite brut
 item.hardware.item_raw_galena.name=Minerai de galène brut
-item.hardware.item_raw_rutile.name=Minerai de rutile
+item.hardware.item_raw_rutile.name=Minerai de rutile brut
+item.hardware.item_raw_wolframite.name=Minerai de wolframite brut
+item.hardware.item_raw_scheelite.name=Minerai de Scheelite brut
 
 # Lingots (items)
 item.hardware.item_ingot_copper.name=Lingot de Cuivre

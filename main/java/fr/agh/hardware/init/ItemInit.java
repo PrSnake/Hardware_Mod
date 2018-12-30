@@ -19,6 +19,8 @@ public class ItemInit {
 	public static final Item RAW_GALENA = new ItemBase("item_raw_galena", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_VANADIUM = new ItemBase("item_raw_vanadium", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_RUTILE = new ItemBase("item_raw_rutile", CreativeTabInit.TAB_MINERALS);
+	public static final Item RAW_WOLFRAMITE = new ItemBase("item_raw_wolframite", CreativeTabInit.TAB_MINERALS);
+	public static final Item RAW_SCHEELITE = new ItemBase("item_raw_scheelite", CreativeTabInit.TAB_MINERALS);
 	
 	// Lingots
 	// public static final Item INGOT_ = new ItemBase("item_ingot_", CreativeTabInit.TAB_MINERALS);
@@ -40,4 +42,6 @@ public class ItemInit {
 	public static final Item ORE_CRUSHER_UPGRADE_FUEL_EFFICIENCY = new ItemBase("item_ore_crusher_upgrade_fuel_efficiency", CreativeTabInit.TAB_MACHINES_UPGRADES);
 	public static final Item ORE_CRUSHER_UPGRADE_PRODUCTION = new ItemBase("item_ore_crusher_upgrade_production", CreativeTabInit.TAB_MACHINES_UPGRADES);
 	public static final Item ORE_CRUSHER_UPGRADE_SPEED = new ItemBase("item_ore_crusher_upgrade_speed", CreativeTabInit.TAB_MACHINES_UPGRADES);
+
+	
 }

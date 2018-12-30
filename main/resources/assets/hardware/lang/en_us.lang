@@ -30,6 +30,14 @@ tile.hardware.block_ore_rutile_overworld.name=Rutile Ore
 tile.hardware.block_ore_rutile_nether.name=Rutile Ore - Nether
 tile.hardware.block_ore_rutile_end.name=Rutile Ore - End
 
+tile.hardware.block_ore_wolframite_overworld.name=Wolframite Ore
+tile.hardware.block_ore_wolframite_nether.name=Wolframite Ore - Nether
+tile.hardware.block_ore_wolframite_end.name=Wolframite Ore - End
+
+tile.hardware.block_ore_scheelite_overworld.name=Scheelite Ore
+tile.hardware.block_ore_scheelite_nether.name=Scheelite Ore - Nether
+tile.hardware.block_ore_scheelite_end.name=Scheelite Ore - End
+
 # Raw ores items
 item.hardware.item_raw_copper.name=Raw copper ore
 item.hardware.item_raw_cobalt.name=Raw cobalt ore
@@ -37,6 +45,8 @@ item.hardware.item_raw_vanadium.name=Raw vanadium ore
 item.hardware.item_raw_bauxite.name=Raw bauxite ore
 item.hardware.item_raw_galena.name=Raw galena ore
 item.hardware.item_raw_rutile.name=Raw rutile ore
+item.hardware.item_raw_wolframite.name=Raw Wolframite ore
+item.hardware.item_raw_scheelite.name=Raw Scheelite ore
 
 # Ingots Items
 item.hardware.item_ingot_copper.name=Copper Ingot

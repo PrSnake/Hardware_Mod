@@ -294,6 +294,9 @@ public class TileEntityOreCrusher extends TileEntity implements ITickable, ICapa
 				break;
 			case 3:
 				this.totalCookTime = value;
+				break;
+			default:
+				break;
 		}
 	}
 }

@@ -89,9 +89,6 @@ public class ContainerOreCrusher extends Container {
 	
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
-		
-		// TODO add support to the 3 upgrade slot, they can only take stack of one item
-		
 		ItemStack stackBuffer0 = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 		
@@ -100,15 +97,7 @@ public class ContainerOreCrusher extends Container {
 			ItemStack stackBuffer1 = slot.getStack();
 			stackBuffer0 = stackBuffer1.copy();
 			
-			if (index == 2) {
-				
-				if (!this.mergeItemStack(stackBuffer1, 6, 42, true)) {
-					return ItemStack.EMPTY;
-				}
-				
-				slot.onSlotChange(stackBuffer1, stackBuffer0);
-				
-			} else if (index != 1 && index != 0) {
+			if (index>5) {
 				if (!RecipesOreCrusher.getInstance().getOreCrushingResult(stackBuffer1).isEmpty()) {
 					if (!this.mergeItemStack(stackBuffer1, 0, 1, false)) {
 						return ItemStack.EMPTY;
@@ -117,7 +106,7 @@ public class ContainerOreCrusher extends Container {
 					if (!this.mergeItemStack(stackBuffer1, 1, 2, false)) {
 						return ItemStack.EMPTY;
 					}
-				} else if (index >= 3 && index < 30) {
+				} else if (index >= 6 && index < 33) {
 					if (!this.mergeItemStack(stackBuffer1, 33, 42, false)) {
 						return ItemStack.EMPTY;
 					}

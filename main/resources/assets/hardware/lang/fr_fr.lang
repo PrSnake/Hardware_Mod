@@ -3,7 +3,7 @@ itemGroup.hardware.tab_hardware_minerals=Mineraux
 itemGroup.hardware.tab_hardware_components=Composants
 itemGroup.hardware.tab_hardware_tools=Outils
 itemGroup.hardware.tab_hardware_machines=Machines
-itemGroup.hardware.tab_hardware_machines_upgrades=Améliorations
+itemGroup.hardware.tab_hardware_machines_upgrades=Amï¿½liorations
 
 # Blocs de minerai
 tile.hardware.block_ore_cobalt_overworld.name=Minerai de Cobalt
@@ -22,9 +22,9 @@ tile.hardware.block_ore_bauxite_overworld.name=Minerai de Bauxite
 tile.hardware.block_ore_bauxite_nether.name=Minerai de Bauxite du Nether
 tile.hardware.block_ore_bauxite_end.name=Minerai de Bauxite de l'end
 
-tile.hardware.block_ore_galena_overworld.name=Minerai de Galène
-tile.hardware.block_ore_galena_nether.name=Minerai de Galène du Nether
-tile.hardware.block_ore_galena_end.name=Minerai de Galène de l'end
+tile.hardware.block_ore_galena_overworld.name=Minerai de GalÃ¨ne
+tile.hardware.block_ore_galena_nether.name=Minerai de GalÃ¨ne du Nether
+tile.hardware.block_ore_galena_end.name=Minerai de GalÃ¨ne de l'end
 
 tile.hardware.block_ore_rutile_overworld.name=Minerai de Rutile
 tile.hardware.block_ore_rutile_nether.name=Minerai de Rutile du Nether
@@ -64,7 +64,7 @@ container.hardware.ore_crusher.name=Broyeur de minerai
 # Types de carburants
 fueltype.hardware.thermic.name=Thermique
 fueltype.hardware.electric.name=Electrique
-fueltype.hardware.nuclear.name=Nucléaire
+fueltype.hardware.nuclear.name=NuclÃ©aire
 
 # Composants
 item.hardware.item_plate_iron.name=Plaque de fer
@@ -72,7 +72,7 @@ item.hardware.item_rode_iron.name=Barre de fer
 item.hardware.item_gears_iron.name=Engrenage en fer
 item.hardware.item_grinder_iron.name=Concasseur en fer
 
-# Améliorations de machines
-item.hardware.item_ore_crusher_upgrade_fuel_efficiency.name=Broyeur de minerai- Efficacité du carburant
-item.hardware.item_ore_crusher_upgrade_production.name=Broyeur de minerai - Amélioration de production
-item.hardware.item_ore_crusher_upgrade_speed.name=Broyeur de minerai - Amélioration de vitesse
+# AmÃ©liorations de machines
+item.hardware.item_ore_crusher_upgrade_fuel_efficiency.name=Broyeur de minerai- EfficacitÃ©e du carburant
+item.hardware.item_ore_crusher_upgrade_production.name=Broyeur de minerai - AmÃ©lioration de production
+item.hardware.item_ore_crusher_upgrade_speed.name=Broyeur de minerai - AmÃ©lioration de vitesse

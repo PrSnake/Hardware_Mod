@@ -3,7 +3,7 @@ itemGroup.hardware.tab_hardware_minerals=Mineraux
 itemGroup.hardware.tab_hardware_components=Composants
 itemGroup.hardware.tab_hardware_tools=Outils
 itemGroup.hardware.tab_hardware_machines=Machines
-itemGroup.hardware.tab_hardware_machines_upgrades=Am�liorations
+itemGroup.hardware.tab_hardware_machines_upgrades=Améliorations
 
 # Blocs de minerai
 tile.hardware.block_ore_cobalt_overworld.name=Minerai de Cobalt

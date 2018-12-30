@@ -25,7 +25,7 @@ public class ModHardware {
 	public static ModHardware instance;
 	
 	@SidedProxy(clientSide = HardwareReference.CLIENT, serverSide = HardwareReference.SERVER)
-    public static HardwareCommon proxy;
+	public static HardwareCommon proxy;
 	
 	public static Logger logger;
 	

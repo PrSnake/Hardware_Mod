@@ -115,6 +115,8 @@ public class WorldGenCustomOres implements IWorldGenerator {
 				runGenerator(ore_end_wolframite, world, random, chunkX, chunkZ, 50, 0, 256);
 				runGenerator(ore_end_scheelite, world, random, chunkX, chunkZ, 50, 0, 256);
 				break;
+			default:
+				break;
 		}
 	}
 	

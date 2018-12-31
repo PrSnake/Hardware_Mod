@@ -87,9 +87,9 @@ public class WorldGenCustomOres implements IWorldGenerator {
 		ore_nether_scheelite = new WorldGenMinable(BlockInit.ORE_SCHEELITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
 		ore_end_scheelite = new WorldGenMinable(BlockInit.ORE_SCHEELITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
 
-		ore_overworld_scheelite = new WorldGenMinable(BlockInit.ORE_BISMUTHINITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
-		ore_nether_scheelite = new WorldGenMinable(BlockInit.ORE_BISMUTHINITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
-		ore_end_scheelite = new WorldGenMinable(BlockInit.ORE_BISMUTHINITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
+		ore_overworld_bismuthinite = new WorldGenMinable(BlockInit.ORE_BISMUTHINITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
+		ore_nether_bismuthinite = new WorldGenMinable(BlockInit.ORE_BISMUTHINITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		ore_end_bismuthinite = new WorldGenMinable(BlockInit.ORE_BISMUTHINITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
 	}
 	
 	@Override

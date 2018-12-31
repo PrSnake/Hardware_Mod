@@ -28,6 +28,7 @@ public class RecipesOreCrusher {
 		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_RUTILE), new ItemStack(ItemInit.RAW_RUTILE), 5.0F);
 		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_SCHEELITE), new ItemStack(ItemInit.RAW_SCHEELITE), 5.0F);
 		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_WOLFRAMITE), new ItemStack(ItemInit.RAW_WOLFRAMITE), 5.0F);
+		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_BISMUTHINITE), new ItemStack(ItemInit.RAW_BISMUTHINITE), 5.0F);
 	}
 
 	

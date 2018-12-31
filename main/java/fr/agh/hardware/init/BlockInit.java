@@ -42,7 +42,8 @@ public class BlockInit {
 	public static final Block ORE_RUTILE = new BlockOreBase("block_ore_rutile", ItemInit.RAW_RUTILE, 15.0F, 3.0F);
 	public static final Block ORE_WOLFRAMITE = new BlockOreBase("block_ore_wolframite", ItemInit.RAW_WOLFRAMITE, 15.0F, 3.0F);
 	public static final Block ORE_SCHEELITE = new BlockOreBase("block_ore_scheelite", ItemInit.RAW_SCHEELITE, 15.0F, 3.0F);
-	
+	public static final Block ORE_BISMUTHINITE = new BlockOreBase("block_ore_bismuthinite", ItemInit.RAW_BISMUTHINITE, 15.0F, 3.0F);
+
 	// Machines
 	public static final Block MACHINES_ORE_CRUSHER = new BlockOreCrusher("block_ore_crusher", CreativeTabInit.TAB_MACHINES);
 	

@@ -38,6 +38,10 @@ tile.hardware.block_ore_scheelite_overworld.name=Scheelite Ore
 tile.hardware.block_ore_scheelite_nether.name=Scheelite Ore - Nether
 tile.hardware.block_ore_scheelite_end.name=Scheelite Ore - End
 
+tile.hardware.block_ore_bismuthinite_overworld.name=Bismuthinite Ore
+tile.hardware.block_ore_bismuthinite_nether.name=Bismuthinite Ore - Nether
+tile.hardware.block_ore_bismuthinite_end.name=Bismuthinite Ore - End
+
 # Raw ores items
 item.hardware.item_raw_copper.name=Raw Copper ore
 item.hardware.item_raw_cobaltite.name=Raw Cobalt ore
@@ -47,6 +51,7 @@ item.hardware.item_raw_galena.name=Raw Galena ore
 item.hardware.item_raw_rutile.name=Raw Rutile ore
 item.hardware.item_raw_wolframite.name=Raw Wolframite ore
 item.hardware.item_raw_scheelite.name=Raw Scheelite ore
+item.hardware.item_raw_bismuthinite.name=Raw Bismuthinite ore
 
 # Ingots Items
 item.hardware.item_ingot_copper.name=Copper Ingot

@@ -1,0 +1,13 @@
+{
+   "variants": {
+      "variant=overworld": {
+         "model": "hardware:block_ore_bismuthinite_overworld"
+      },
+      "variant=nether": {
+         "model": "hardware:block_ore_bismuthinite_nether"
+      },
+      "variant=end": {
+         "model": "hardware:block_ore_bismuthinite_end"
+      }
+   }
+}

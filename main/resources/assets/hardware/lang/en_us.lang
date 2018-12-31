@@ -42,16 +42,21 @@ tile.hardware.block_ore_bismuthinite_overworld.name=Bismuthinite Ore
 tile.hardware.block_ore_bismuthinite_nether.name=Bismuthinite Ore - Nether
 tile.hardware.block_ore_bismuthinite_end.name=Bismuthinite Ore - End
 
+tile.hardware.block_ore_uranium_overworld.name=Uranium Ore
+tile.hardware.block_ore_uranium_nether.name=Uranium Ore - Nether
+tile.hardware.block_ore_uranium_end.name=Uranium Ore - End
+
 # Raw ores items
-item.hardware.item_raw_copper.name=Raw Copper ore
-item.hardware.item_raw_cobaltite.name=Raw Cobalt ore
-item.hardware.item_raw_vanadium.name=Raw Vanadium ore
-item.hardware.item_raw_bauxite.name=Raw Bauxite ore
-item.hardware.item_raw_galena.name=Raw Galena ore
-item.hardware.item_raw_rutile.name=Raw Rutile ore
-item.hardware.item_raw_wolframite.name=Raw Wolframite ore
-item.hardware.item_raw_scheelite.name=Raw Scheelite ore
-item.hardware.item_raw_bismuthinite.name=Raw Bismuthinite ore
+item.hardware.item_raw_copper.name=Raw Copper Ore
+item.hardware.item_raw_cobaltite.name=Raw Cobalt Ore
+item.hardware.item_raw_vanadium.name=Raw Vanadium Ore
+item.hardware.item_raw_bauxite.name=Raw Bauxite Ore
+item.hardware.item_raw_galena.name=Raw Galena Ore
+item.hardware.item_raw_rutile.name=Raw Rutile Ore
+item.hardware.item_raw_wolframite.name=Raw Wolframite Ore
+item.hardware.item_raw_scheelite.name=Raw Scheelite Ore
+item.hardware.item_raw_bismuthinite.name=Raw Bismuthinite Ore
+item.hardware.item_raw_uranium.name=Raw Uranium Ore
 
 # Ingots Items
 item.hardware.item_ingot_copper.name=Copper Ingot

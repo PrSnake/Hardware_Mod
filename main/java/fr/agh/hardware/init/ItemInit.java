@@ -1,11 +1,11 @@
 package fr.agh.hardware.init;
 
 import java.util.List;
+import java.util.ArrayList;
+
+import net.minecraft.item.Item;
 
 import fr.agh.hardware.objects.items.ItemBase;
-
-import java.util.ArrayList;
-import net.minecraft.item.Item;
 
 public class ItemInit {
 	
@@ -22,6 +22,7 @@ public class ItemInit {
 	public static final Item RAW_WOLFRAMITE = new ItemBase("item_raw_wolframite", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_SCHEELITE = new ItemBase("item_raw_scheelite", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_BISMUTHINITE = new ItemBase("item_raw_bismuthinite", CreativeTabInit.TAB_MINERALS);
+	public static final Item RAW_URANIUM = new ItemBase("item_raw_uranium", CreativeTabInit.TAB_MINERALS);
 
 	// Lingots
 	// public static final Item INGOT_ = new ItemBase("item_ingot_", CreativeTabInit.TAB_MINERALS);

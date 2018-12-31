@@ -23,6 +23,7 @@ public class ItemInit {
 	public static final Item RAW_SCHEELITE = new ItemBase("item_raw_scheelite", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_BISMUTHINITE = new ItemBase("item_raw_bismuthinite", CreativeTabInit.TAB_MINERALS);
 	public static final Item RAW_URANIUM = new ItemBase("item_raw_uranium", CreativeTabInit.TAB_MINERALS);
+	public static final Item RAW_CASSITERITE = new ItemBase("item_raw_cassiterite", CreativeTabInit.TAB_MINERALS);
 
 	// Lingots
 	// public static final Item INGOT_ = new ItemBase("item_ingot_", CreativeTabInit.TAB_MINERALS);

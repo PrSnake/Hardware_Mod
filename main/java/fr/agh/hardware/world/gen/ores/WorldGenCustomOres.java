@@ -57,6 +57,10 @@ public class WorldGenCustomOres implements IWorldGenerator {
 	private WorldGenerator ore_nether_uranium;
 	private WorldGenerator ore_end_uranium;
 	
+	private WorldGenerator ore_overworld_cassiterite;
+	private WorldGenerator ore_nether_cassiterite;
+	private WorldGenerator ore_end_cassiterite;
+	
 	public WorldGenCustomOres() {
 		
 		ore_overworld_cobalt = new WorldGenMinable(BlockInit.ORE_COBALTITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
@@ -98,6 +102,10 @@ public class WorldGenCustomOres implements IWorldGenerator {
 		ore_overworld_uranium = new WorldGenMinable(BlockInit.ORE_URANIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
 		ore_nether_uranium = new WorldGenMinable(BlockInit.ORE_URANIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
 		ore_end_uranium = new WorldGenMinable(BlockInit.ORE_URANIUM.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
+		
+		ore_overworld_cassiterite = new WorldGenMinable(BlockInit.ORE_CASSITERITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.OVERWORLD), 8, BlockMatcher.forBlock(Blocks.STONE));
+		ore_nether_cassiterite = new WorldGenMinable(BlockInit.ORE_CASSITERITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.NETHER), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		ore_end_cassiterite = new WorldGenMinable(BlockInit.ORE_CASSITERITE.getDefaultState().withProperty(BlockOreBase.VARIANT, MetaDimension.END), 8, BlockMatcher.forBlock(Blocks.END_STONE));
 	}
 	
 	@Override
@@ -114,6 +122,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
 				runGenerator(ore_nether_scheelite, world, random, chunkX, chunkZ, 50, 0, 256);
 				runGenerator(ore_nether_bismuthinite, world, random, chunkX, chunkZ, 50, 0, 256);
 				runGenerator(ore_nether_uranium, world, random, chunkX, chunkZ, 50, 0, 256);
+				runGenerator(ore_nether_cassiterite, world, random, chunkX, chunkZ, 50, 0, 256);
 				break;
 			case 0: // Overworld
 				runGenerator(ore_overworld_cobalt, world, random, chunkX, chunkZ, 50, 0, 128);
@@ -126,6 +135,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
 				runGenerator(ore_overworld_scheelite, world, random, chunkX, chunkZ, 50, 0, 128);
 				runGenerator(ore_overworld_bismuthinite, world, random, chunkX, chunkZ, 50, 0, 128);
 				runGenerator(ore_overworld_uranium, world, random, chunkX, chunkZ, 50, 0, 128);
+				runGenerator(ore_overworld_cassiterite, world, random, chunkX, chunkZ, 50, 0, 128);
 				break;
 			case 1: // End
 				runGenerator(ore_end_cobalt, world, random, chunkX, chunkZ, 50, 0, 256);
@@ -138,6 +148,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
 				runGenerator(ore_end_scheelite, world, random, chunkX, chunkZ, 50, 0, 256);
 				runGenerator(ore_end_bismuthinite, world, random, chunkX, chunkZ, 50, 0, 256);
 				runGenerator(ore_end_uranium, world, random, chunkX, chunkZ, 50, 0, 256);
+				runGenerator(ore_end_cassiterite, world, random, chunkX, chunkZ, 50, 0, 256);
 				break;
 			default:
 				break;

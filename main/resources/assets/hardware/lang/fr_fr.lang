@@ -46,6 +46,11 @@ tile.hardware.block_ore_uranium_overworld.name=Minerai d'Uranium
 tile.hardware.block_ore_uranium_nether.name=Minerai d'Uranium du Nether
 tile.hardware.block_ore_uranium_end.name=Minerai d'Uranium de l'End
 
+tile.hardware.block_ore_cassiterite_overworld.name=Minerai de Cassitérite
+tile.hardware.block_ore_cassiterite_nether.name=Minerai de Cassitérite Ore du Nether
+tile.hardware.block_ore_cassiterite_end.name=Minerai de Cassitérite de l'End
+
+
 # Minerais brute (items)
 item.hardware.item_raw_copper.name=Minerai de cuivre brut
 item.hardware.item_raw_cobaltite.name=Minerai de cobalt brut
@@ -57,6 +62,7 @@ item.hardware.item_raw_wolframite.name=Minerai de wolframite brut
 item.hardware.item_raw_scheelite.name=Minerai de Scheelite brut
 item.hardware.item_raw_bismuthinite.name=Minerai de Bismuthinite brut
 item.hardware.item_raw_uranium.name=Minerai d'Uranium brut
+item.hardware.item_raw_cassiterite.name=Minerai de Cassiterite brut
 
 # Lingots (items)
 item.hardware.item_ingot_copper.name=Lingot de Cuivre

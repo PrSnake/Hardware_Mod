@@ -50,13 +50,13 @@ tile.hardware.block_ore_cassiterite_overworld.name=Minerai de Cassitérite
 tile.hardware.block_ore_cassiterite_nether.name=Minerai de Cassitérite Ore du Nether
 tile.hardware.block_ore_cassiterite_end.name=Minerai de Cassitérite de l'End
 
-tile.hardware.block_ore_silver_overworld.name=
-tile.hardware.block_ore_silver_nether.name=
-tile.hardware.block_ore_silver_end.name=
+tile.hardware.block_ore_silver_overworld.name=Minerai d'argent
+tile.hardware.block_ore_silver_nether.name=Minerai d'argent du Nether
+tile.hardware.block_ore_silver_end.name=Minerai d'argent de l'End
 
-tile.hardware.block_ore_garnierite_overworld.name=
-tile.hardware.block_ore_garnierite_nether.name=
-tile.hardware.block_ore_garnierite_end.name=
+tile.hardware.block_ore_garnierite_overworld.name=Minerai de Garnierite
+tile.hardware.block_ore_garnierite_nether.name=Minerai de Garnierite du Nether
+tile.hardware.block_ore_garnierite_end.name=Minerai de Garnierite de l'End
 
 
 # Minerais brute (items)

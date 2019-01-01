@@ -25,7 +25,6 @@ public class BlockInit {
 	
 	// Minerai
 	/* TODO Add more of them !
-	 * Tin
 	 * Silver
 	 * Sulfure
 	 * Lithium
@@ -43,6 +42,8 @@ public class BlockInit {
 	public static final Block ORE_BISMUTHINITE = new BlockOreBase("block_ore_bismuthinite", ItemInit.RAW_BISMUTHINITE, 15.0F, 3.0F);
 	public static final Block ORE_URANIUM = new BlockOreBase("block_ore_uranium", ItemInit.RAW_URANIUM, 15.0F, 3.0F);
 	public static final Block ORE_CASSITERITE = new BlockOreBase("block_ore_cassiterite", ItemInit.RAW_CASSITERITE, 15.0F, 3.0F);
+	public static final Block ORE_SILVER = new BlockOreBase("block_ore_silver", ItemInit.RAW_SILVER, 15.0F, 3.0F);
+	public static final Block ORE_GARNIERITE = new BlockOreBase("block_ore_garnierite", ItemInit.RAW_GARNIERITE, 15.0F, 3.0F);
 
 	// Machines
 	public static final Block MACHINES_ORE_CRUSHER = new BlockOreCrusher("block_ore_crusher", CreativeTabInit.TAB_MACHINES);

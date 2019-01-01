@@ -50,6 +50,14 @@ tile.hardware.block_ore_cassiterite_overworld.name=Cassiterite Ore
 tile.hardware.block_ore_cassiterite_nether.name=Cassiterite Ore - Nether
 tile.hardware.block_ore_cassiterite_end.name=Cassiterite Ore - End
 
+tile.hardware.block_ore_silver_overworld.name=
+tile.hardware.block_ore_silver_nether.name=
+tile.hardware.block_ore_silver_end.name=
+
+tile.hardware.block_ore_garnierite_overworld.name=
+tile.hardware.block_ore_garnierite_nether.name=
+tile.hardware.block_ore_garnierite_end.name=
+
 
 # Raw ores items
 item.hardware.item_raw_copper.name=Raw Copper Ore
@@ -63,6 +71,8 @@ item.hardware.item_raw_scheelite.name=Raw Scheelite Ore
 item.hardware.item_raw_bismuthinite.name=Raw Bismuthinite Ore
 item.hardware.item_raw_uranium.name=Raw Uranium Ore
 item.hardware.item_raw_cassiterite.name=Raw Cassiterite Ore
+item.hardware.item_raw_silver.name=Raw Silver Ore
+item.hardware.item_raw_garnierite.name=Raw Garnierite Ore
 
 # Ingots Items
 item.hardware.item_ingot_copper.name=Copper Ingot

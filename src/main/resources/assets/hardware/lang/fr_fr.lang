@@ -3,7 +3,7 @@ itemGroup.hardware.tab_hardware_minerals=Mineraux
 itemGroup.hardware.tab_hardware_components=Composants
 itemGroup.hardware.tab_hardware_tools=Outils
 itemGroup.hardware.tab_hardware_machines=Machines
-itemGroup.hardware.tab_hardware_machines_upgrades=AmÃ©liorations
+itemGroup.hardware.tab_hardware_machines_upgrades=Améliorations
 
 # Blocs de minerai
 tile.hardware.block_ore_cobaltite_overworld.name=Minerai de Cobaltite
@@ -22,9 +22,9 @@ tile.hardware.block_ore_bauxite_overworld.name=Minerai de Bauxite
 tile.hardware.block_ore_bauxite_nether.name=Minerai de Bauxite du Nether
 tile.hardware.block_ore_bauxite_end.name=Minerai de Bauxite de l'End
 
-tile.hardware.block_ore_galena_overworld.name=Minerai de GalÃ¨ne
-tile.hardware.block_ore_galena_nether.name=Minerai de GalÃ¨ne du Nether
-tile.hardware.block_ore_galena_end.name=Minerai de GalÃ¨ne de l'End
+tile.hardware.block_ore_galena_overworld.name=Minerai de Galène
+tile.hardware.block_ore_galena_nether.name=Minerai de Galène du Nether
+tile.hardware.block_ore_galena_end.name=Minerai de Galène de l'End
 
 tile.hardware.block_ore_rutile_overworld.name=Minerai de Rutile
 tile.hardware.block_ore_rutile_nether.name=Minerai de Rutile du Nether
@@ -46,9 +46,17 @@ tile.hardware.block_ore_uranium_overworld.name=Minerai d'Uranium
 tile.hardware.block_ore_uranium_nether.name=Minerai d'Uranium du Nether
 tile.hardware.block_ore_uranium_end.name=Minerai d'Uranium de l'End
 
-tile.hardware.block_ore_cassiterite_overworld.name=Minerai de CassitÃ©rite
-tile.hardware.block_ore_cassiterite_nether.name=Minerai de CassitÃ©rite Ore du Nether
-tile.hardware.block_ore_cassiterite_end.name=Minerai de CassitÃ©rite de l'End
+tile.hardware.block_ore_cassiterite_overworld.name=Minerai de Cassitérite
+tile.hardware.block_ore_cassiterite_nether.name=Minerai de Cassitérite Ore du Nether
+tile.hardware.block_ore_cassiterite_end.name=Minerai de Cassitérite de l'End
+
+tile.hardware.block_ore_silver_overworld.name=
+tile.hardware.block_ore_silver_nether.name=
+tile.hardware.block_ore_silver_end.name=
+
+tile.hardware.block_ore_garnierite_overworld.name=
+tile.hardware.block_ore_garnierite_nether.name=
+tile.hardware.block_ore_garnierite_end.name=
 
 
 # Minerais brute (items)
@@ -56,13 +64,15 @@ item.hardware.item_raw_copper.name=Minerai de cuivre brut
 item.hardware.item_raw_cobaltite.name=Minerai de cobalt brut
 item.hardware.item_raw_vanadium.name=Minerai de vanadium brut
 item.hardware.item_raw_bauxite.name=Minerai de bauxite brut
-item.hardware.item_raw_galena.name=Minerai de galÃ¨ne brut
+item.hardware.item_raw_galena.name=Minerai de galène brut
 item.hardware.item_raw_rutile.name=Minerai de rutile brut
 item.hardware.item_raw_wolframite.name=Minerai de wolframite brut
 item.hardware.item_raw_scheelite.name=Minerai de Scheelite brut
 item.hardware.item_raw_bismuthinite.name=Minerai de Bismuthinite brut
 item.hardware.item_raw_uranium.name=Minerai d'Uranium brut
 item.hardware.item_raw_cassiterite.name=Minerai de Cassiterite brut
+item.hardware.item_raw_silver.name=Minerai d'argent brut
+item.hardware.item_raw_garnierite.name=Minerai de garniérite brut
 
 # Lingots (items)
 item.hardware.item_ingot_copper.name=Lingot de Cuivre
@@ -80,7 +90,7 @@ container.hardware.ore_crusher.name=Broyeur de minerai
 # Types de carburants
 fueltype.hardware.thermic.name=Thermique
 fueltype.hardware.electric.name=Electrique
-fueltype.hardware.nuclear.name=NuclÃ©aire
+fueltype.hardware.nuclear.name=Nucléaire
 
 # Composants
 item.hardware.item_plate_iron.name=Plaque de fer
@@ -89,6 +99,6 @@ item.hardware.item_gears_iron.name=Engrenage en fer
 item.hardware.item_grinder_iron.name=Concasseur en fer
 
 # AmÃ©liorations de machines
-item.hardware.item_ore_crusher_upgrade_fuel_efficiency.name=Broyeur de minerai- EfficacitÃ©e du carburant
-item.hardware.item_ore_crusher_upgrade_production.name=Broyeur de minerai - AmÃ©lioration de production
-item.hardware.item_ore_crusher_upgrade_speed.name=Broyeur de minerai - AmÃ©lioration de vitesse
+item.hardware.item_ore_crusher_upgrade_fuel_efficiency.name=Broyeur de minerai- Efficacitée du carburant
+item.hardware.item_ore_crusher_upgrade_production.name=Broyeur de minerai - Amélioration de production
+item.hardware.item_ore_crusher_upgrade_speed.name=Broyeur de minerai - Amélioration de vitesse

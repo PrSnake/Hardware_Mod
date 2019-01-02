@@ -31,6 +31,8 @@ public class RecipesOreCrusher {
 		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_BISMUTHINITE), new ItemStack(ItemInit.RAW_BISMUTHINITE), 5.0F);
 		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_URANIUM), new ItemStack(ItemInit.RAW_URANIUM), 5.0F);
 		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_CASSITERITE), new ItemStack(ItemInit.RAW_CASSITERITE), 5.0F);
+		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_SILVER), new ItemStack(ItemInit.RAW_SILVER), 5.0F);
+		addOreCrushingRecipe(new ItemStack(BlockInit.ORE_GARNIERITE), new ItemStack(ItemInit.RAW_GARNIERITE), 5.0F);
 	}
 
 	

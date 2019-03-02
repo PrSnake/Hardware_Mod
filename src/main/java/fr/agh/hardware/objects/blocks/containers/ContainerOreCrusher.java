@@ -31,26 +31,9 @@ public class ContainerOreCrusher extends Container {
 		this.addSlotToContainer(new SlotItemHandler(handler, 0, 56, 17));	// input
 		this.addSlotToContainer(new SlotItemHandler(handler, 1, 56, 53));	// fuel
 		this.addSlotToContainer(new SlotItemHandler(handler, 2, 116, 35));	// output
-		
-		// upgrade slot 1, 2 and 3 in order
-		this.addSlotToContainer(new SlotItemHandler(handler, 3, 9, 9) {
-			@Override
-			public int getSlotStackLimit() {
-				return 1;
-			}
-		});
-		this.addSlotToContainer(new SlotItemHandler(handler, 4, 9, 32) {
-			@Override
-			public int getSlotStackLimit() {
-				return 1;
-			}
-		});
-		this.addSlotToContainer(new SlotItemHandler(handler, 5, 9, 55) {
-			@Override
-			public int getSlotStackLimit() {
-				return 1;
-			}
-		});
+		this.addSlotToContainer(new SlotItemHandler(handler, 3, 9, 9));		// Upgrade slot 1
+		this.addSlotToContainer(new SlotItemHandler(handler, 4, 9, 32));	// Upgrade slot 2
+		this.addSlotToContainer(new SlotItemHandler(handler, 5, 9, 55));	// Upgrade slot 3
 		
 		// player inventory
 		for(int line = 0; line < 3; line++) {

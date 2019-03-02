@@ -3,6 +3,7 @@ package fr.agh.hardware.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.agh.hardware.objects.blocks.BlockEnergyGenerator;
 import fr.agh.hardware.objects.blocks.BlockOreBase;
 import fr.agh.hardware.objects.blocks.BlockOreCrusher;
 import net.minecraft.block.Block;
@@ -47,5 +48,6 @@ public class BlockInit {
 
 	// Machines
 	public static final Block MACHINES_ORE_CRUSHER = new BlockOreCrusher("block_ore_crusher", CreativeTabInit.TAB_MACHINES);
+	public static final Block MACHINES_ENERGY_GENERATOR = new BlockEnergyGenerator("block_energy_generator", CreativeTabInit.TAB_MACHINES);
 	
 }

@@ -15,4 +15,5 @@ public class HardwareReference {
 	
 	// Interfaces
 	public static final int GUI_ORE_CRUSHER = 1;
+	public static final int GUI_ENERGY_GENERATOR = 2;
 }

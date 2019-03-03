@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiOreCrusher extends GuiContainer {
 
-	private static final ResourceLocation TEXTURES = new ResourceLocation(HardwareReference.MODID + ":textures/gui/container/block_ore_crusher.png");
+	private static final ResourceLocation TEXTURES = new ResourceLocation(HardwareReference.MOD_ID + ":textures/gui/container/block_ore_crusher.png");
 	private final InventoryPlayer player;
 	private final TileEntityOreCrusher tileentity;
 	

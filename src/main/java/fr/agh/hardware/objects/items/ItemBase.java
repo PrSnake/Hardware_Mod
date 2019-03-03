@@ -10,8 +10,8 @@ import net.minecraft.item.Item;
 public class ItemBase extends Item implements IHasModel {
 
 	public ItemBase(String name, CreativeTabs tab) {
-		setUnlocalizedName(HardwareReference.MODID + "." + name);
-		setRegistryName(HardwareReference.MODID, name);
+		setUnlocalizedName(HardwareReference.MOD_ID + "." + name);
+		setRegistryName(HardwareReference.MOD_ID, name);
 		setCreativeTab(tab);
 		setMaxStackSize(64);
 		

@@ -16,8 +16,8 @@ public class BlockBase  extends Block implements IHasModel  {
 	public BlockBase(String name, CreativeTabs tab, Material material, float resistance, float hardness) {
 		super(material);
 		
-		setUnlocalizedName(HardwareReference.MODID + "." + name);
-		setRegistryName(HardwareReference.MODID, name);
+		setUnlocalizedName(HardwareReference.MOD_ID + "." + name);
+		setRegistryName(HardwareReference.MOD_ID, name);
 		
 		setResistance(resistance);
 		setHardness(hardness);

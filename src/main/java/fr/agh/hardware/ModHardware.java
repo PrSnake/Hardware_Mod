@@ -17,14 +17,13 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import fr.agh.hardware.util.HardwareReference;
 
 // TODO check the version in mods menu in game
-@Mod(modid = HardwareReference.MODID, useMetadata = true, name = HardwareReference.NAME, version = HardwareReference.VERSION, acceptedMinecraftVersions = HardwareReference.MCVERSION)
-
+@Mod(modid = HardwareReference.MOD_ID, name = HardwareReference.MOD_NAME, version = HardwareReference.MOD_VERSION, acceptedMinecraftVersions = HardwareReference.MC_VERSION)
 public class ModHardware {
 	
-	@Instance(HardwareReference.MODID)
+	@Mod.Instance(HardwareReference.MOD_ID)
 	public static ModHardware instance;
 	
-	@SidedProxy(clientSide = HardwareReference.CLIENT, serverSide = HardwareReference.SERVER)
+	@SidedProxy(clientSide = HardwareReference.MOD_PROXY_CLIENT, serverSide = HardwareReference.MOD_PROXY_SERVER)
 	public static HardwareCommon proxy;
 	
 	public static Logger logger;

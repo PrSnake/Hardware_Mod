@@ -10,7 +10,6 @@ import net.minecraftforge.client.model.ModelLoader;
 
 
 public class HardwareClient extends HardwareCommon {
-
 	@Override
 	public void preInit(File configFile) {
 		super.preInit(configFile);
@@ -32,6 +31,6 @@ public class HardwareClient extends HardwareCommon {
 	
 	@Override
 	public void registerVariantItemRenderer(Item item, int meta, String filename, String id) {
-		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(HardwareReference.MODID, filename), id));
+		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(HardwareReference.MOD_ID, filename), id));
 	}
 }

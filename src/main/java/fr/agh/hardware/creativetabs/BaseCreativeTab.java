@@ -12,7 +12,7 @@ public class BaseCreativeTab extends CreativeTabs {
 	private ItemStack icon = null;
 	
 	public BaseCreativeTab(String label, String image) {
-		super(HardwareReference.MODID + "." + label);
+		super(HardwareReference.MOD_ID + "." + label);
 		setBackgroundImageName(image);
 		NAME = label;
 	}

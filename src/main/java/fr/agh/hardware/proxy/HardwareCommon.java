@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 public class HardwareCommon {
 	
 	public void preInit(File configFile) {
-
+		
 	}
 	
 	public void init() {

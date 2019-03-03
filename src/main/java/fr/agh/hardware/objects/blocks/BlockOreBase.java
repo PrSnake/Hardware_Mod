@@ -36,8 +36,8 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName {
 	public BlockOreBase(String name, Item item, float resistance, float hardness) {
 		super(Material.ROCK);
 		
-		this.setUnlocalizedName(HardwareReference.MODID + "." + name);
-		this.setRegistryName(HardwareReference.MODID, name);
+		this.setUnlocalizedName(HardwareReference.MOD_ID + "." + name);
+		this.setRegistryName(HardwareReference.MOD_ID, name);
 		
 		this.setSoundType(blockSoundType.STONE);
 		
@@ -124,5 +124,4 @@ public class BlockOreBase extends Block implements IHasModel, IMetaName {
 	public String getSpecialName(ItemStack stack) {
 		return MetaDimension.values()[stack.getItemDamage()].getName();
 	}
-
 }

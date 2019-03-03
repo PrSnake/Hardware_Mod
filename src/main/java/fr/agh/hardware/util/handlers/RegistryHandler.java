@@ -46,30 +46,25 @@ public class RegistryHandler {
 		}
 	}
 	
-	public static void preInitRegistries(FMLPreInitializationEvent event)
-	{
+	public static void preInitRegistries(FMLPreInitializationEvent event) {
 		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
 		RecipeHandler.registerSmelting();
 		TileEntityHandler.registerTileEntities();
 	}
 	
-	public static void initRegistries(FMLInitializationEvent event)
-	{
+	public static void initRegistries(FMLInitializationEvent event) {
 		NetworkRegistry.INSTANCE.registerGuiHandler(ModHardware.instance, new GuiHandler());
 	}
 	
-	public static void postInitRegistries(FMLPostInitializationEvent event)
-	{
+	public static void postInitRegistries(FMLPostInitializationEvent event) {
 		
 	}
 	
-	public static void serverRegistries(FMLServerStartingEvent event)
-	{
-
+	public static void serverRegistries(FMLServerStartingEvent event) {
+		
 	}
 
 	public static void otherRegistries() {
 		
-
 	}
 }

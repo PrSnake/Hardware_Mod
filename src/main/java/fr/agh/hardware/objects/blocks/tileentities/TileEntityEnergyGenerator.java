@@ -20,7 +20,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityEnergyGenerator extends TileEntity implements ITickable, ICapabilityProvider {
-	
+
 	private ItemStackHandler handler = new ItemStackHandler(6);
 	private String customName;
 	

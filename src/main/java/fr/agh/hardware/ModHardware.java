@@ -32,7 +32,7 @@ public class ModHardware {
 		MinecraftForge.EVENT_BUS.register(new RegistryHandler());
 	}
 
-	@EventHandler
+	@Mod.EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
 		proxy.preInit(event.getSuggestedConfigurationFile());
@@ -40,19 +40,19 @@ public class ModHardware {
 		RegistryHandler.preInitRegistries(event);
 	}
 
-	@EventHandler
+	@Mod.EventHandler
 	public static void init(FMLInitializationEvent event) {
 		proxy.init();
 		RegistryHandler.initRegistries(event);
 	}
 	
-	@EventHandler
+	@Mod.EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
 		RegistryHandler.postInitRegistries(event);
 		CreativeTabInit.applyCTabsIcons();
 	}
 	
-	@EventHandler
+	@Mod.EventHandler
 	public static void serverInit(FMLServerStartingEvent event) {
 		RegistryHandler.serverRegistries(event);
 	}

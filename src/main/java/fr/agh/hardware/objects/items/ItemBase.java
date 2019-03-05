@@ -8,8 +8,13 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 public class ItemBase extends Item implements IHasModel {
-
+	
+	protected String name;
+	
 	public ItemBase(String name, CreativeTabs tab) {
+		
+		this.name = name;
+		
 		setUnlocalizedName(HardwareReference.MOD_ID + "." + name);
 		setRegistryName(HardwareReference.MOD_ID, name);
 		setCreativeTab(tab);

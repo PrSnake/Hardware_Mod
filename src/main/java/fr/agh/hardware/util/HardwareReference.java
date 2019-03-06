@@ -11,8 +11,8 @@ public class HardwareReference {
 	
 	// Proxies
 	public static final String MOD_PROXY_CLIENT = "fr.agh.hardware.proxy.HardwareClient";
-	public static final String MOD_PROXY_SERVER = "fr.agh.hardware.proxy.HardwareServer";
-	public static final String MOD_PROXY_COMMON = "fr.agh.hardware.proxy.HardwareCommon";
+	public static final String MOD_PROXY_SERVER = "fr.agh.hardware.proxy.HardwareCommon";
+	//public static final String MOD_PROXY_COMMON = "fr.agh.hardware.proxy.HardwareCommon";
 	
 	// Interfaces
 	public static final int GUI_ORE_CRUSHER = 1;

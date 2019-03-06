@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import fr.agh.hardware.util.handlers.RegistryHandler;
 import fr.agh.hardware.init.CreativeTabInit;
 import fr.agh.hardware.proxy.HardwareCommon;
+import fr.agh.hardware.proxy.IHardwareProxy;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -16,12 +17,13 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import fr.agh.hardware.util.HardwareReference;
 
-// TODO check the version in mods menu in game
 @Mod(	modid = HardwareReference.MOD_ID,
 		name = HardwareReference.MOD_NAME,
 		version = HardwareReference.MOD_VERSION,
 		acceptedMinecraftVersions = HardwareReference.MC_VERSION,
-		updateJSON = HardwareReference.MOD_UPDATE_JSON_URL)
+		updateJSON = HardwareReference.MOD_UPDATE_JSON_URL
+	)
+
 public class ModHardware {
 	
 	@Mod.Instance(HardwareReference.MOD_ID)
@@ -38,20 +40,27 @@ public class ModHardware {
 
 	@Mod.EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
+		
 		logger = event.getModLog();
-		proxy.preInit(event.getSuggestedConfigurationFile());
+		
+		/* Common Events */
+		
+		proxy.preInit(event);
 		
 		RegistryHandler.preInitRegistries(event);
 	}
 
 	@Mod.EventHandler
 	public static void init(FMLInitializationEvent event) {
-		proxy.init();
+		proxy.init(event);
+		
 		RegistryHandler.initRegistries(event);
 	}
 	
 	@Mod.EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
+		
+		proxy.postInit(event);
 		RegistryHandler.postInitRegistries(event);
 		CreativeTabInit.applyCTabsIcons();
 	}

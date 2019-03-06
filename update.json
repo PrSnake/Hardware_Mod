@@ -1,10 +1,12 @@
 {
 	"homepage": "https://github.com/PrSnake/Hardware_Mod/",
 	"1.12.2": {
-		"1.0.0.0": "Starting from scratch", 
+		"1.0.0.0": "Starting from scratch",
+		"1.0.0.1": "Stable", 
+		"1.0.0.2": "Unstable",
 	},
 	"promos": {
-		"1.12.2-latest": "1.0.0.0",
+		"1.12.2-latest": "1.0.0.2",
 		"1.12.2-recommended": "1.0.0.1",
 	}
 }

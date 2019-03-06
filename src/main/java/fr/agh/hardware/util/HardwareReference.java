@@ -5,6 +5,7 @@ public class HardwareReference {
 	// Mod metadata
 	public static final String MOD_ID = "hardware";
 	public static final String MOD_NAME = "Hardware Mod";
+	public static final String MOD_UPDATE_JSON_URL = "https://raw.githubusercontent.com/PrSnake/Hardware_Mod/develop/update.json";
 	public static final String MOD_VERSION = "1.0.0.0";
 	public static final String MC_VERSION = "[1.12.2]";
 	

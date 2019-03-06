@@ -17,7 +17,11 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import fr.agh.hardware.util.HardwareReference;
 
 // TODO check the version in mods menu in game
-@Mod(modid = HardwareReference.MOD_ID, name = HardwareReference.MOD_NAME, version = HardwareReference.MOD_VERSION, acceptedMinecraftVersions = HardwareReference.MC_VERSION)
+@Mod(	modid = HardwareReference.MOD_ID,
+		name = HardwareReference.MOD_NAME,
+		version = HardwareReference.MOD_VERSION,
+		acceptedMinecraftVersions = HardwareReference.MC_VERSION,
+		updateJSON = HardwareReference.MOD_UPDATE_JSON_URL)
 public class ModHardware {
 	
 	@Mod.Instance(HardwareReference.MOD_ID)
